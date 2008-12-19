@@ -1,0 +1,307 @@
+\documentclass[fleqn]{article}
+\usepackage[round,longnamesfirst]{natbib}
+\usepackage{graphicx,keyval,thumbpdf,a4wide,makeidx,color,colordvi}
+\usepackage{amsfonts,hyperref}
+
+\newcommand\R{\textsf{R}}
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\newcommand{\sQuote}[1]{`{#1}'}
+\newcommand{\dQuote}[1]{``{#1}''}
+\newcommand{\file}[1]{\sQuote{\textsf{#1}}}
+\newcommand{\data}[1]{\texttt{#1}}
+\newcommand{\var}[1]{\textit{#1}}
+\newcommand{\class}[1]{\textsf{#1}}
+\newcommand{\proglang}[1]{\textsf{#1}}
+%% \code without `-' ligatures
+\def\nohyphenation{\hyphenchar\font=-1 \aftergroup\restorehyphenation}
+\def\restorehyphenation{\hyphenchar\font=`-}
+{\catcode`\-=\active%
+  \global\def\code{\bgroup%
+    \catcode`\-=\active \let-\codedash%
+    \Rd@code}}
+\def\codedash{-\discretionary{}{}{}}
+\def\Rd@code#1{\texttt{\nohyphenation#1}\egroup}
+\newcommand{\codefun}[1]{\code{#1()}}
+\newcommand{\codefunind}[1]{\codefun{#1}\index{\texttt{#1}}}
+\newcommand{\codeind}[1]{\code{#1}\index{\texttt{#1}}}
+
+\SweaveOpts{strip.white=TRUE}
+
+\AtBeginDocument{\setkeys{Gin}{width=0.5\textwidth}}
+
+\definecolor{Blue}{rgb}{0,0,0.8}
+\definecolor{Red}{rgb}{0.7,0,0}
+
+\date{2008-06-18}
+\title{Knowledge Space Theory}
+\author{Christina Stahl}
+%\VignetteIndexEntry{KST}
+%\VignetteDepends{kst}
+%\VignetteKeywords{knowledge structure, knowledge space}
+%\VignettePackage{kst}
+
+\makeindex{}
+
+\sloppy{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document explains algorithms and basic operations of knowledge 
+structures and knowledge spaces available in \R{} through the \pkg{kst} 
+package.
+\end{abstract}
+
+<<echo=FALSE>>=
+options(width = 80)
+library("kst")
+@ %
+
+%\section{Introduction}
+%\label{sec:introduction}
+
+Knowledge Space Theory \citep{Doignon+Falmagne:1999} is a set-theoretical 
+framework, which proposes mathematical formalisms to operationalize knowledge 
+structures in a particular domain. The most basic assumption of knowledge 
+space theory is that every knowledge \emph{domain} can be represented in 
+terms of a set of domain problems or items. Moreover, knowledge space theory 
+assumes dependencies between these items in that knowledge of a given item or 
+a subset of items may be a prerequisite for knowledge of another, more 
+difficult or complex item. These prerequisite \emph{relations} are realized by 
+surmise relations, which create a quasi-order between different items. One 
+advantage of these surmise relations is that they reduce the quantity of all 
+possible solution patterns to a more manageable amount of knowledge states. 
+Each of these knowledge states represents the subset of items an individual 
+is capable of solving. The collection of all knowledge states captures the
+organization of the domain and is referred to as \emph{knowledge structure}.
+
+\section{Knowledge Structures}
+\label{sec:kstructure}
+
+The \codefunind{kstructure} function in package \pkg{kst} is the basic 
+constructor for knowledge structures. It takes an endorelation 
+representing a surmise relation or a set of sets each representing one 
+knowledge state (e.g., one clause of a surmise system) and returns the 
+corresponding knowledge structure:
+<<kstructure>>=
+# An endorelation representing a surmise relation
+kst <- endorelation(graph=set(tuple(1,1), tuple(2,2), tuple(3,3),
+  tuple(4,4), tuple(2,1), tuple(3,1), tuple(4,1), tuple(3,2), tuple(4,2)))
+kstructure(kst)
+# A set of sets representing knowledge states (e.g., clauses of a surmise system)
+kst <- kstructure(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 
+   set("a","b","d","e"), set("a","c","d","e"), set("a","b","c","d","e")))
+kst
+@
+
+Note that by default the quotes indicate the fact that the items are 
+represented by characters. For displaying purposes, these quotes may be
+turned off:
+<<set_options>>=
+sets_options("quote",FALSE)
+kst
+@
+
+On the resulting knowledge structure several operations can be performed. 
+Firstly, the knowledge \emph{domain} of the knowledge structure can be 
+determined by means of the \codefunind{kdomain} function:
+<<kdomain>>=
+kdomain(kst)
+@
+
+Secondly, the \emph{atoms} of the knowledge structure can be determined by 
+means of the \codefunind{katoms} function. For any item of the knowledge 
+domain, an atom is a minimal knowledge state containing the respective item, 
+where minimal refers to the fact that the respective knowledge state is not 
+the union of any other knowledge states:
+<<katoms>>=
+katoms(kst, items=set("a","b","c"))
+@
+
+Thirdly, the \emph{notions} of the knowledge structure can be determined by 
+means of the \codefunind{knotions} function. A notion is a set of items 
+always jointly contained in some knowledge states. Consequently, these items 
+carry the same information and may therefore be considered equivalent: 
+<<knotions>>=
+knotions(kst)
+@
+
+Finally, the \emph{trace} of the knowledge structure can be determined by 
+means of the \codefunind{ktrace} function. The trace of a knowledge structure 
+on a set of items is the substructure of the knowledge structure on these 
+items, i.e., the substructure resulting from restricting the knowledge 
+structure to the specified item(s):
+<<ktrace>>=
+ktrace(kst, items=set("c","d","e"))
+@
+
+Apart from these basic operations, the \pkg{kst} package also provides 
+plotting functionalities for knowledge structures. The \codefunind{plot} 
+method takes an arbitrary knowledge structure and plots a Hasse Diagram of 
+the respective knowledge structure (see Figure 1):
+<<plot,fig=FALSE>>=
+plot(kst)
+@
+
+Note that the \codefunind{plot} method makes use of the package \pkg{Rgraphviz}. 
+\pkg{Rgraphviz} v1.18 or higher may cause problems on Windows operating systems. 
+For this reason, \pkg{Rgraphviz} v1.16.0 is provided in the \code{inst} directory 
+of this package and may be installed manually in case of plotting errors.
+
+\begin{figure}[h]
+\begin{center}
+<<fig=TRUE,echo=FALSE>>=
+<<plot>>
+@
+\caption{Knowledge Structure}
+\label{fig:plot}
+\end{center}
+\end{figure}
+
+In order to allow for plotting the surmise relation underlying a knowledge 
+structure, the \pkg{kst} package provides the \codefunind{as.relation} 
+method, which computes its underlying surmise relation, i.e., the set of
+item pairs corresponding to the knowledge dependencies. Antisymmetric and 
+transitive surmise relations may then be plotted as a Hasse diagram:
+<<as.relation>>=
+as.relation(kst)
+@
+
+In those cases where individuals' response patterns are available, they may 
+be used to assess individuals or validate a knowledge structure.
+
+The \codefunind{kassess} function assigns individuals to their corresponding 
+knowledge state in a knowledge structure. Currently only 
+\dQuote{deterministic} assessment is implemented. Assessing individuals based 
+on a deterministic procedure starts by determining an item \emph{a}, which is 
+contained in approximately half of the available knowledge states. If the 
+individual being assessed has successfully solved the respective item 
+\emph{a}, all knowledge states that do not contain item \emph{a} are removed 
+from the set of potential knowledge states of the individual. If, on the 
+other hand, the individual has not solved the respective item \emph{a}, all 
+knowledge states that do contain item \emph{a} are removed from the set of 
+potential knowledge states of the individual. From the remaining knowledge 
+states an item \emph{b}, which again is contained in approximately half of 
+the still available knowledge states, is selected. If the individual has 
+successfully solved the respective item \emph{b}, all knowledge states that 
+do not contain item \emph{b} are removed from the set of potential knowledge 
+states of the individual. If, on the other hand, the individual has solved 
+the respective item \emph{b}, all knowledge states that do contain item 
+\emph{b} are removed from the set of potential knowledge states of the 
+individual. This procedure is repeated until only one knowledge state is 
+left. This is the knowledge state the individual is currently located in.
+<<kassess>>=
+rp <- data.frame(a=c(1,1,0,1,1,1,1,0,0,0),b=c(0,1,0,1,0,1,0,1,0,0),
+   c=c(0,0,0,0,1,1,1,0,1,0),d=c(0,0,1,1,1,1,0,0,0,1), e=c(0,0,1,1,1,1,0,0,0,0))
+kassess(kst, rpatterns=rp)
+@
+
+The \codefunind{kvalidate} function on the other hand calculates validity 
+coefficients for prerequisite relations and knowledge structures. The 
+\emph{$\gamma$-Index} \citep{Goodman+Kruskal:1972} validates the prerequisite 
+relation underlying a knowledge structure and assumes that not every response 
+pattern is represented by a prerequisite relation. For this purpose it 
+compares the number of response patterns that are represented by a 
+prerequisite relation (i.e., concordant pairs) with the number of response 
+patterns that are not represented by a prerequisite relation (i.e., 
+discordant pairs). Formally, the $\gamma$-Index is defined as 
+\[\gamma = \frac{N_c - N_d}{N_c + N_d}\] where $N_c$ is the number of 
+concordant pairs and $N_d$ the number of discordant pairs. Generally, a 
+positive $\gamma$-value supports the validity of prerequisite relations.
+
+The validation method \emph{percent} likewise validates prerequisite 
+relations and assumes that more difficult or complex items are solved less 
+frequently than less difficult or complex items. For this purpose it 
+calculates the relative solution frequency for each of the items in the 
+domain.
+
+The \emph{Violational Coefficient} \citep{Schrepp+Held+Albert:1999} also 
+validates prerequisite relations. For this purpose, the number of violations 
+(i.e., the earlier mentioned discordant pairs) against a prerequisite relation 
+are calculated. Formally, the VC is defined as 
+\[VC = \frac{1}{n(|S| - m)} \sum_{x,y} v_{xy}\] where $n$ denotes the number 
+of response vectors, $|S|$ refers to the number of pairs in the relation, 
+$m$ denotes the number of items, and $v_{xy}$ again refers to the number of 
+discordant pairs. Generally, a low VC supports the validity of prerequisite 
+relations.
+
+In contrast to the other three indices, the \emph{Distance Agreement 
+Coefficient} \citep{Schrepp:1999} validates the resulting knowledge structure. 
+For this purpose it compares the average symmetric distance between the 
+knowledge structure and respone patterns (referred to as \emph{ddat}) to the 
+average symmetric distance between the knowledge structure and the power set 
+of response patterns (referred to as \emph{dpot}). By calculating the ratio 
+of \emph{ddat} and \emph{dpot}, the DA is determined. Generally, a lower 
+DA-value indicates a better fit between a knowledge structure and a set of 
+response patterns.
+<<kvalidate>>=
+kvalidate(kst, rpatterns=rp, method="gamma")
+kvalidate(kst, rpatterns=rp, method="percent")
+kvalidate(kst, rpatterns=rp, method="VC")
+kvalidate(kst, rpatterns=rp, method="DA")
+@
+
+Apart from these kst-specific functions, the \pkg{kst} package also provides 
+general set-related methods. In particular, these include methods pertaining 
+to the \emph{closure} and \emph{reduction} of sets.
+
+The \codefunind{closure} method for objects of class \codefun{kstructure} 
+performs the closure of a knowledge structure by computing the union or 
+intersection of any two knowledge states. \code{union} is also used as 
+a basis for the \codefun{kspace} function (see next section).
+<<closure>>=
+closure(kst, operation="union")
+@
+
+The \codefunind{reduction} method performs the reduction of a knowledge 
+structure by computing the minimal subset having the same closure as the 
+knowledge structure. Additionally, it allows for computing the 
+\emph{discriminative} reduction of a knowledge structure. Such a 
+discriminative reduction is a knowledge structure in which each notion 
+contains a single item.
+<<reduction>>=
+reduction(kst, operation="discrimination")
+@
+
+\section{Knowledge Spaces}
+\label{sec:kspace}
+
+Apart from knowledge structures, knowledge space theory also suggests the 
+concept of \emph{knowledge spaces}. A knowledge structure is considered a 
+knowledge space if it includes one state for the empty set \emph{\{\}}, one 
+state for the full set of domain items, and a state for the union of any two 
+knowledge states (i.e., the closure under union). The basic constructor for
+creating knowledge spaces is the \codefunind{kspace} function. It takes an 
+arbitrary knowledge structure and returns the corresponding knowledge space:
+<<kspace>>=
+ksp <- kspace(kst)
+ksp
+@
+
+In order to test for the space property of a knowledge structure, the 
+\pkg{kst} package provides the function \codefunind{kstructure\_is\_space}:
+<<kstructure_is_space>>=
+kstructure_is_kspace(ksp)
+@
+
+Apart from the functions described in the previous section, which can 
+likewise be performed on knowledge spaces, the package \pkg{kst} provides the 
+additional function \codefunind{kbase}, which is only applicable to knowledge 
+spaces. The \codefun{kbase} function takes an arbitrary knowledge space and 
+computes its \emph{base}. A base for a knowledge space is a minimal family of 
+knowledge states spanning the knowledge space, i.e., the base includes the 
+minimal states sufficient to reconstruct the full knowledge space. 
+A knowledge structure has a base only if it is a knowledge space.
+<<kbase>>=
+kbase(ksp)
+@
+
+{\small
+  \bibliographystyle{abbrvnat}
+  \bibliography{kst}
+}
+
+\printindex{}
+
+\end{document}

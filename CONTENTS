@@ -1,0 +1,77 @@
+Entry: as.relation
+Aliases: as.relation.kstructure
+Keywords: math
+Description: Surmise Relations of Knowledge Structures
+URL: ../../../library/kst/html/as.relation.html
+
+Entry: closure
+Aliases: closure.kstructure
+Keywords: math
+Description: Closure of a Knowledge Structure
+URL: ../../../library/kst/html/closure.html
+
+Entry: kassess
+Aliases: kassess
+Keywords: math
+Description: Assess Individuals
+URL: ../../../library/kst/html/kassess.html
+
+Entry: katoms
+Aliases: katoms
+Keywords: math
+Description: Atoms of Knowledge Structures
+URL: ../../../library/kst/html/katoms.html
+
+Entry: kbase
+Aliases: kbase
+Keywords: math
+Description: Base of a Knowledge Space
+URL: ../../../library/kst/html/kbase.html
+
+Entry: kdomain
+Aliases: kdomain
+Keywords: math
+Description: Domain of Knowledge Structures
+URL: ../../../library/kst/html/kdomain.html
+
+Entry: knotions
+Aliases: knotions
+Keywords: math
+Description: Notions of Knowledge Structures
+URL: ../../../library/kst/html/knotions.html
+
+Entry: kstructure
+Aliases: kstructure
+Keywords: math
+Description: Knowledge Structure
+URL: ../../../library/kst/html/kstructure.html
+
+Entry: ktrace
+Aliases: ktrace
+Keywords: math
+Description: Trace of Knowledge Structures
+URL: ../../../library/kst/html/ktrace.html
+
+Entry: kvalidate
+Aliases: kvalidate
+Keywords: math
+Description: Validate Prerequisite Relations or Knowledge Structures
+URL: ../../../library/kst/html/kvalidate.html
+
+Entry: plot
+Aliases: plot.kstructure
+Keywords: math
+Description: Plot Knowledge Structures
+URL: ../../../library/kst/html/plot.html
+
+Entry: reduction
+Aliases: reduction.kstructure
+Keywords: math
+Description: Reduction of Knowledge Structures
+URL: ../../../library/kst/html/reduction.html
+
+Entry: space
+Aliases: kstructure_is_kspace kspace
+Keywords: math
+Description: Space Property of a Knowledge Structure
+URL: ../../../library/kst/html/space.html

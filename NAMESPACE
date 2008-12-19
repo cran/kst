@@ -1,0 +1,21 @@
+importFrom("relations","as.relation")
+importFrom("sets","reduction")
+importFrom("sets","closure")
+import(proxy)
+
+export("kassess",
+       "katoms",
+       "kbase",
+       "kdomain",
+       "knotions",
+       "kspace",
+       "kstructure",
+       "kstructure_is_kspace",
+       "ktrace",
+       "kvalidate"
+       )
+
+S3method("as.relation", "kstructure")
+S3method("closure", "kstructure")
+S3method("plot", "kstructure")
+S3method("reduction", "kstructure")
