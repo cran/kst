@@ -1,4 +1,0 @@
-Note that the plot method in package kst makes use of the package Rgraphviz. 
-Rgraphviz v1.18 or higher may cause problems on Windows operating systems. 
-For this reason, Rgraphviz v1.16.0 is provided in the /pkgs directory 
-of this package and may be installed manually in case of plotting errors.

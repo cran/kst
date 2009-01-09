@@ -1,5 +1,6 @@
 Package: kst
-Version: 0.1.7
+Version: 0.1.8
+Date: 2009-01-09
 Title: Knowledge Space Theory
 Author: Christina Stahl and David Meyer
 Maintainer: Christina Stahl <christina.stahl@chello.at>
@@ -10,4 +11,4 @@ Description: Knowledge Space Theory is a set-theoretical framework, which
 License: GPL (>= 2)
 Depends: R (>= 2.7.0), proxy, relations (>= 0.4-0), sets (>= 0.3-2)
 Suggests: Rgraphviz
-Packaged: Fri Dec 19 16:30:46 2008; meyer
+Packaged: Fri Jan  9 14:55:24 2009; meyer
