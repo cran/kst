@@ -34,7 +34,7 @@ reduction.kstructure <- function(x, operation=c("discrimination", "union", "inte
       }
 
    } else
-      NextMethod()
+      redu <- NextMethod()
 
    class(redu) <- class(x)
 

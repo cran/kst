@@ -144,11 +144,6 @@ the respective knowledge structure (see Figure 1):
 plot(kst)
 @
 
-Note that the \codefunind{plot} method makes use of the package \pkg{Rgraphviz}. 
-\pkg{Rgraphviz} v1.18 or higher may cause problems on Windows operating systems. 
-For this reason, \pkg{Rgraphviz} v1.16.0 is provided in the \code{inst} directory 
-of this package and may be installed manually in case of plotting errors.
-
 \begin{figure}[h]
 \begin{center}
 <<fig=TRUE,echo=FALSE>>=

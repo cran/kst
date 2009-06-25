@@ -11,14 +11,6 @@
   \item{x}{An \R object of class \code{\link{kstructure}}.}
   \item{\dots}{Other arguments to be passed to methods.}
 }
-\note{
-   Note that the \code{plot} method makes use of the package 
-   \code{Rgraphviz}. \code{Rgraphviz} v1.18 or higher may cause 
-   problems on Windows operating systems. For this reason, 
-   \code{Rgraphviz} v1.16.0 is provided in the \code{inst} 
-   directory of this package and may be installed manually in case 
-   of plotting errors.
-}
 \seealso{
   \code{\link{kstructure}}
 }
