@@ -16,7 +16,7 @@ reduction.kstructure <- function(x, operation=c("discrimination", "union", "inte
       stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kstructure")))
    }
 
-   redu <- if(operation == "discrimination") {
+   if(operation == "discrimination") {
    ### compute discriminative reduction
 
       dom <- kdomain(x)
