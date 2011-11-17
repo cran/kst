@@ -1,0 +1,64 @@
+
+
+
+======================================================================
+INSTALLING RGRAPHVIZ UNDER WINDOWS (current as of November 19th, 2011)
+======================================================================
+
+In order to make use of the plotting functionalities provided in the 
+kst-package, the package 'Rgraphviz' is required. While stable under 
+other operating systems, when run on a Windows machine Rgraphviz 
+requires some extra work to operate properly.
+
+One way to ensure proper operation is to compile Rgraphviz from source. 
+If you prefer this option please see the README of the Rgraphviz-
+package for details.
+
+In case you prefer to use the Rgraphviz Windows binaries the 
+following suggestions have proven helpful:
+
+
+
+Installing Rgraphviz under Windows 32bit
+----------------------------------------
+
+The README of the Rgraphviz-package provides a detailed description of 
+how to install Rgraphviz on 32bit Windows systems. A brief summary is 
+given here:
+
+- Install Graphviz 2.20.3.1 Windows binary distribution from
+  http://www.graphviz.org/pub/graphviz/stable/windows/graphviz-2.20.3.1.msi
+  Note that it is vital to use this particular version of Graphviz.
+
+- Add Graphviz' bin diretory to the user PATH environment variable.
+
+- Install the Rgraphviz-package from Bioconductor.
+
+
+
+Installing Rgraphviz under Windows 64bit
+----------------------------------------
+
+The Graphviz version 2.20.3.1 used for 32bit systems does not work on 
+64bit machines. Consequently, a 64bit Graphviz version is needed:
+
+- Download the 64bit Graphviz version from 
+  http://www.stats.ox.ac.uk/pub/Rtools/goodies/Win64No_/
+  and extract the archive to a folder on your computer.
+
+- Change the PATH environment variable to point to the location of 
+  the Graphviz64 bin directory.
+
+- Install the 64bit Rgraphviz-binary from Bioconductor.
+
+For obvious reasons the 64bit Graphviz und Rgraphviz versions only work 
+when used in combination with the 64bit R version.
+
+
+
+If you still encounter problems please refer to the Rgraphviz-README.
+
+
+
+
+

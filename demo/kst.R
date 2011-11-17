@@ -10,14 +10,25 @@ kst
 ### compute domain of knowledge structure
 kdomain(kst)
 
-### compute atoms of knowledge structure
-katoms(kst, items=set("a","b","c"))
-
 ### compute notions of knowledge structure
 knotions(kst)
 
+### compute atoms of knowledge structure
+katoms(kst, items=set("a","b","c"))
+
 ### compute trace of knowledge structure
 ktrace(kst, items=set("c","d","e"))
+
+### is knowledge structure well-graded?
+kstructure_is_wellgraded(kst)
+
+### compute inner and outer fringe of whole knowledge structure
+kfringe(kst, state=NULL, fringe="inner")
+kfringe(kst, state=NULL, fringe="outer")
+
+### compute inner and outer fringe of a particular knowledge state
+kfringe(kst, state=set("a", "b"), fringe="inner")
+kfringe(kst, state=set("a", "b"), fringe="outer")
 
 ### convert to relation
 as.relation(kst)
@@ -52,4 +63,9 @@ kstructure_is_kspace(ksp)
 ### base of knowledge space
 kbase(ksp)
 
+### compute learning paths in knowledge structure
+lp <- lpath(kst)
+lp
 
+### are learning paths gradations?
+lpath_is_gradation(lp)

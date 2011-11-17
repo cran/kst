@@ -25,14 +25,14 @@
 \newcommand{\codefunind}[1]{\codefun{#1}\index{\texttt{#1}}}
 \newcommand{\codeind}[1]{\code{#1}\index{\texttt{#1}}}
 
-\SweaveOpts{strip.white=TRUE}
+\SweaveOpts{strip.white=true}
 
 \AtBeginDocument{\setkeys{Gin}{width=0.5\textwidth}}
 
 \definecolor{Blue}{rgb}{0,0,0.8}
 \definecolor{Red}{rgb}{0.7,0,0}
 
-\date{2008-06-18}
+\date{2011-11-19}
 \title{Knowledge Space Theory}
 \author{Christina Stahl}
 %\VignetteIndexEntry{KST}
@@ -110,7 +110,15 @@ determined by means of the \codefunind{kdomain} function:
 kdomain(kst)
 @
 
-Secondly, the \emph{atoms} of the knowledge structure can be determined by 
+Secondly, the \emph{notions} of the knowledge structure can be determined by 
+means of the \codefunind{knotions} function. A notion is a set of items 
+always jointly contained in all knowledge states. Consequently, these items 
+carry the same information and may therefore be considered equivalent: 
+<<knotions>>=
+knotions(kst)
+@
+
+Thirdly, the \emph{atoms} of the knowledge structure can be determined by 
 means of the \codefunind{katoms} function. For any item of the knowledge 
 domain, an atom is a minimal knowledge state containing the respective item, 
 where minimal refers to the fact that the respective knowledge state is not 
@@ -119,15 +127,7 @@ the union of any other knowledge states:
 katoms(kst, items=set("a","b","c"))
 @
 
-Thirdly, the \emph{notions} of the knowledge structure can be determined by 
-means of the \codefunind{knotions} function. A notion is a set of items 
-always jointly contained in some knowledge states. Consequently, these items 
-carry the same information and may therefore be considered equivalent: 
-<<knotions>>=
-knotions(kst)
-@
-
-Finally, the \emph{trace} of the knowledge structure can be determined by 
+Forthly, the \emph{trace} of the knowledge structure can be determined by 
 means of the \codefunind{ktrace} function. The trace of a knowledge structure 
 on a set of items is the substructure of the knowledge structure on these 
 items, i.e., the substructure resulting from restricting the knowledge 
@@ -136,12 +136,27 @@ structure to the specified item(s):
 ktrace(kst, items=set("c","d","e"))
 @
 
+Finally, the \codefunind{kfringe} function allows for determining the inner and outer fringe of a knowledge structure or a knowledge state respectively. Fringes determine the symmetric difference between a given knowledge state and its neighbouring states. The symmetric difference between a given knowledge state and its predecessor states is referred to as \emph{inner fringe}. These items can be interpreted as most recently learned and may for example be subject to learner review or assessment. The symmetric difference between a given knowledge state and its immediate successor states is referred to as \emph{outer fringe}. These items may be considered those a learner should tackle next and therefore allow for creating personalized learning paths.
+<<kfringe>>=
+kfringe(kst, operation="inner")
+kfringe(kst, state=set("a", "b"), operation="inner")
+kfringe(kst, operation="outer")
+kfringe(kst, state=set("a", "b"), operation="outer")
+@
+
+In addition, several properties of knowledge structures may be tested. Currently, only the functions \codefunind{kstructure\_is\_wellgraded} and the \codefunind{kstructure\_is\_space} are implemented (see Section 2 for the latter). 
+
+A knowledge structure is considered \emph{well-graded} if any two of its states are connected by a bounded path, i.e., each knowledge state (except the empty set \emph{\{\}}) has at least one predecessor state that contains the same domain items with the exception of exactly one and each knowledge state (except the state for the full set of domain problems \emph{Q}) has at least one immediate successor state that comprises the same domain items plus exactly one.   
+<<kstructure_is_wellgraded>>=
+kstructure_is_wellgraded(kst)
+@
+
 Apart from these basic operations, the \pkg{kst} package also provides 
-plotting functionalities for knowledge structures. The \codefunind{plot} 
+plotting functionalities for knowledge structures (see README for details). The \codefunind{plot} 
 method takes an arbitrary knowledge structure and plots a Hasse Diagram of 
 the respective knowledge structure (see Figure 1):
 <<plot,fig=FALSE>>=
-plot(kst)
+if(require("Rgraphviz")) {plot(kst)}
 @
 
 \begin{figure}[h]
@@ -292,6 +307,20 @@ A knowledge structure has a base only if it is a knowledge space.
 kbase(ksp)
 @
 
+\section{Learning Paths}
+\label{sec:lpath}
+
+Both, knowledge structures and knowledge spaces, involve the concept of \emph{learning paths}. A learning path is a maximal sequence of knowledge states, which allows learners to gradually traverse a knowledge structure or space from the empty set \emph{\{\}} (or any other bottom state) to the full set of domain problems \emph{Q}. The basic constructor for creating learning paths is the \codefunind{lpath} function. It takes an arbitrary knowledge structure or space and computes all possible learning paths in the respective knowledge structure or space. The result is a list where each element represents one learning path:
+<<lpath>>=
+lp <- lpath(ksp)
+lp
+@
+
+A learning path is considered a \emph{gradation} if each state in the respective learning path differs from its predecessor and/or successor state by a single item/notion. The \codefunind{lpath\_is\_gradation} function allows for testing the gradation property of a list of learning paths:
+<<lpath_is_gradation>>=
+lpath_is_gradation(lp)
+@
+
 {\small
   \bibliographystyle{abbrvnat}
   \bibliography{kst}
@@ -300,3 +329,4 @@ kbase(ksp)
 \printindex{}
 
 \end{document}
+

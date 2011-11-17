@@ -11,6 +11,11 @@
 
 plot.kstructure <- function(x, ...) {
 
+   ### check if package Rgraphviz is available
+   if (!require("Rgraphviz")) {
+     stop(sprintf("Plotting requires package 'Rgraphviz'."))
+   }
+
    ### check x
    if (!inherits(x, "kstructure")) {
       stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kstructure")))

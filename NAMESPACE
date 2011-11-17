@@ -7,12 +7,18 @@ export("kassess",
        "katoms",
        "kbase",
        "kdomain",
+       "kfringe",
+       "kfringe_inner",
+       "kfringe_outer",
        "knotions",
        "kspace",
        "kstructure",
        "kstructure_is_kspace",
+       "kstructure_is_wellgraded",
        "ktrace",
-       "kvalidate"
+       "kvalidate",
+       "lpath",
+       "lpath_is_gradation"
        )
 
 S3method("as.relation", "kstructure")

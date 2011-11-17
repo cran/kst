@@ -11,6 +11,9 @@
   \item{x}{An \R object of class \code{\link{kstructure}}.}
   \item{\dots}{Other arguments to be passed to methods.}
 }
+\details{
+\code{plot} takes an arbitrary knowledge structure and plots a Hasse Diagram of the respective knowledge structure (see README for details). 
+}
 \seealso{
   \code{\link{kstructure}}
 }
@@ -21,6 +24,7 @@
 \examples{
 kst <- kstructure(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 
    set("a","b","d","e"), set("a","c","d","e"), set("a","b","c","d","e")))
-plot(kst)
+if(require("Rgraphviz")) {plot(kst)}
 }
 \keyword{math}
+
