@@ -1,4 +1,4 @@
-aa811f5d16b6f7e3f7c9f705b7287bc5 *DESCRIPTION
+6db1424c13d04d9402a773b4037b77f2 *DESCRIPTION
 68e14d4eb05fa89621280cf8fe2ec0c3 *NAMESPACE
 f96ac1381cd7c6cdb17392ea64674af5 *R/as.relation.kstructure.R
 63c2ab7243b477d89fd823bfc1d5062c *R/closure.kstructure.R
@@ -20,13 +20,13 @@ f9fd1c78c1800d8fd71dd9358b1f6149 *R/kvalidate.R
 365b7ec7e4b4a1574585ba46ddfe4515 *R/lpath_is_gradation.R
 a94f53b954a86b74633e1c59c0d7086a *R/plot.kstructure.R
 01976d643094acf36646b9028c6580d4 *R/reduction.kstructure.R
+be209500cafbaf32b1881c842a761515 *build/vignette.rds
 b3136412ea69763c8ad8c8089b5611ea *demo/00Index
 abb43df190e0386f52661d876199b0c5 *demo/kst.R
 c0b42be5ab70d947d4b47f454a83f6d3 *inst/doc/README
-8aae94c2b57a5b40cec020ee70aeaea3 *inst/doc/abbrvnat.bst
+a3c91ee7b183a052df8c9d5827189b46 *inst/doc/kst.R
 8b1f538201e9c5dd7404714a4ff7b550 *inst/doc/kst.Rnw
-9e84637024c2527b0b9965aea592887b *inst/doc/kst.bib
-d7edc720a7cb5f1804a647d4f143939c *inst/doc/kst.pdf
+9b112abc96272442ef961c431de610ba *inst/doc/kst.pdf
 0d57bfb9e9aafbb399dc50179853a692 *man/as.relation.Rd
 f23aa3dc2c2b05480a1da856d28099b9 *man/closure.Rd
 28f300041ff6730ef5e872fb08c49876 *man/kassess.Rd
@@ -44,3 +44,6 @@ d72619cbe53336d2db4acec5e75bd68a *man/lpath_is_gradation.Rd
 64d1512526d2a984b6d05367d7735e01 *man/plot.Rd
 a0cbd3af20f47bdc4c5c810507927663 *man/reduction.Rd
 7e8a74441383776c49bdad79bbfc8b73 *man/space.Rd
+8aae94c2b57a5b40cec020ee70aeaea3 *vignettes/abbrvnat.bst
+8b1f538201e9c5dd7404714a4ff7b550 *vignettes/kst.Rnw
+9e84637024c2527b0b9965aea592887b *vignettes/kst.bib
