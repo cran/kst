@@ -1,0 +1,9 @@
+2017-12-13: Version 0.2.2, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* R/kstructure.R: kstructure() now includes the empty set and the full item set.
+
+* man/kstructure.md: Changed accordingly.
+
+* R/plot.kstructure.R: Changes to reflect the (new) rules for suggested packages.
+
+* Added a4wide.sry to vignettes directory

@@ -8,9 +8,9 @@
   kstructure(x)
 }
 \arguments{
-  \item{x}{Either an \code{\link[relations]{endorelation}} representing a
-  surmise relation, or a \code{\link[sets]{set}} of sets each representing
-  one knowledge state.}
+  \item{x}{Either an endorelation (see \code{\link[relations]{relation}})
+  representing a surmise relation, or a \code{\link[sets]{set}} of sets 
+  each representing one knowledge state.}
 }
 \details{
   The most basic assumption of knowledge space theory is that every
@@ -31,11 +31,13 @@
   \code{kstructure} takes an endorelation representing a surmise relation
   or a set of sets each representing one knowledge state (e.g., one clause
   of a surmise system) and returns the corresponding knowledge structure.
+  A knowledge structure always contains the empty set and \emph{Q}.
 }
 \note{
   Note that by default the quotes indicate the fact that the items 
   are represented by characters. For displaying purposes, these 
-  quotes may be turned off by means of the function \code{\link[sets]{sets_options}}.
+  quotes may be turned off by setting respective set options (see 
+  \code{\link[sets]{options}}).
 }
 \value{
   An \R object of class \code{kstructure}.
@@ -45,7 +47,7 @@
   Springer Verlag.
 }
 \seealso{
-  \code{\link[relations]{endorelation}}, \code{\link[sets]{set}}, \code{\link[sets]{sets_options}}
+  \code{\link[relations]{relation}}, \code{\link[sets]{set}}, \code{\link[sets]{options}}
 }
 \examples{
 # An endorelation representing a surmise relation

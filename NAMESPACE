@@ -1,6 +1,5 @@
-importFrom("relations","as.relation")
-importFrom("sets","reduction")
-importFrom("sets","closure")
+import("sets", "relations")
+importFrom("graphics", "plot")
 import(proxy)
 
 export("kassess",

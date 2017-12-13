@@ -12,7 +12,7 @@
 plot.kstructure <- function(x, ...) {
 
    ### check if package Rgraphviz is available
-   if (!require("Rgraphviz")) {
+   if (!requireNamespace("Rgraphviz", quietly = TRUE)) {
      stop(sprintf("Plotting requires package 'Rgraphviz'."))
    }
 
@@ -25,6 +25,6 @@ plot.kstructure <- function(x, ...) {
    relmat <- set_outer(x, set_is_subset)
 
    ### plot results
-   plot(relation(incidence=relmat, domain=x), ...)
+   Rgraphviz::plot(relation(incidence=relmat, domain=x), ...)
 
 }

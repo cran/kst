@@ -28,7 +28,7 @@
   Springer Verlag.
 }
 \seealso{
-  \code{\link{kstructure}}, \code{\link{knotions}}, \code{\link[sets]{reduction}}
+  \code{\link{kstructure}}, \code{\link{knotions}}, \code{\link[sets]{closure}}
 }
 \examples{
 kst <- kstructure(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 

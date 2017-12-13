@@ -24,6 +24,8 @@ kstructure <- function(x) {
    } else {
       x <- as.set(lapply(lapply(x, as.character),as.set))
    }
+   dom <- as.set(unique(unlist(as.list(x))))
+   x <- set_union(x, set(set(), dom))
    names(x) <- NULL
    class(x) <- unique(c("kstructure", class(x)))
 

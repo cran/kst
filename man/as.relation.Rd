@@ -25,7 +25,7 @@
   Springer Verlag.
 }
 \seealso{
-  \code{\link{kstructure}}, \code{\link[relations]{relation}}, \code{\link[relations]{plot.relation}}
+  \code{\link{kstructure}}, \code{\link[relations]{relation}}, \code{\link[relations]{plot}}
 }
 \examples{
 kst <- kstructure(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 

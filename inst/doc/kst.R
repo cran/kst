@@ -69,13 +69,13 @@ kstructure_is_wellgraded(kst)
 ###################################################
 ### code chunk number 10: plot
 ###################################################
-if(require("Rgraphviz")) {plot(kst)}
+if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
 
 ###################################################
-### code chunk number 11: kst.Rnw:164-165
+### code chunk number 11: kst.Rnw:165-166
 ###################################################
-if(require("Rgraphviz")) {plot(kst)}
+if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
 
 ###################################################

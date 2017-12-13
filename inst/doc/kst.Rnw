@@ -32,7 +32,7 @@
 \definecolor{Blue}{rgb}{0,0,0.8}
 \definecolor{Red}{rgb}{0.7,0,0}
 
-\date{2011-11-19}
+\date{2017-12-11}
 \title{Knowledge Space Theory}
 \author{Christina Stahl}
 %\VignetteIndexEntry{KST}
@@ -61,7 +61,8 @@ library("kst")
 %\section{Introduction}
 %\label{sec:introduction}
 
-Knowledge Space Theory \citep{Doignon+Falmagne:1999} is a set-theoretical 
+Knowledge Space Theory \citep{Doignon+Falmagne:1999} is a set- and
+order-theoretical 
 framework, which proposes mathematical formalisms to operationalize knowledge 
 structures in a particular domain. The most basic assumption of knowledge 
 space theory is that every knowledge \emph{domain} can be represented in 
@@ -156,7 +157,7 @@ plotting functionalities for knowledge structures (see README for details). The 
 method takes an arbitrary knowledge structure and plots a Hasse Diagram of 
 the respective knowledge structure (see Figure 1):
 <<plot,fig=FALSE>>=
-if(require("Rgraphviz")) {plot(kst)}
+if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 @
 
 \begin{figure}[h]
