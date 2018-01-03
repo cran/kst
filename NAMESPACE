@@ -7,8 +7,7 @@ export("kassess",
        "kbase",
        "kdomain",
        "kfringe",
-       "kfringe_inner",
-       "kfringe_outer",
+       "kneighbourhood",
        "knotions",
        "kspace",
        "kstructure",
@@ -21,6 +20,8 @@ export("kassess",
        )
 
 S3method("as.relation", "kstructure")
+S3method("as.relation", "kbase")
 S3method("closure", "kstructure")
+S3method("closure", "kbase")
 S3method("plot", "kstructure")
 S3method("reduction", "kstructure")

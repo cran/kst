@@ -1,14 +1,15 @@
 \name{kdomain}
 \alias{kdomain}
-\title{Domain of Knowledge Structures}
+\title{Domain of Knowledge Structures or Bases}
 \description{
-  Computes the domain of knowledge structures.
+  Computes the domain of knowledge structures or bases.
 }
 \usage{
   kdomain(x)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}} or
+           \code{\link{kbase}}.}
 }
 \details{
   A \emph{domain} is a set of questions or items representing a field of

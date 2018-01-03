@@ -1,45 +1,40 @@
-\name{fringe}
+\name{kfringe}
 \alias{kfringe}
 \alias{kfringe_inner}
 \alias{kfringe_outer}
 \title{Fringes of Knowledge States}
 \description{
-  Computes the inner and outer fringe of knowledge states.
+  Computes the fringe of a knowledge state.
 }
 \usage{
-  kfringe(x, state=NULL, operation=c("inner", "outer"))
+  kfringe(kst, state)
+
+  kfringe_inner(kst, state)
+
+  kfringe_outer(kst, state)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}}.}
-  \item{state}{\code{NULL} (computes the fringes for all knowledge 
-  states in \code{x}) or an \R object of class \code{\link[sets]{set}} 
-  (computes the fringe of a single knowledge state).}
-  \item{operation}{Either \code{"inner"} or \code{"outer"}.}
+  \item{kst}{An \R object of class \code{\link{kstructure}}.}
+  \item{state}{An \R object of class \code{\link[sets]{set}}.}
 }
 \details{
-  Fringes determine the symmetric difference between a given knowledge 
-  state and its neighbouring states.
-
-  The symmetric difference between a given knowledge state and its 
-  predecessor states is referred to as \emph{inner fringe}. These items 
-  can be interpreted as most recently learned and may for example be 
-  subject to learner review or assessment.
-
-  The symmetric difference between a given knowledge state and its 
-  immediate successor states is referred to as \emph{outer fringe}. 
-  These items may be considered those a learner should tackle next and 
-  therefore allow for creating personalized learning paths.
+  The fringe determines the symmetric difference between a given knowledge 
+  state and its neighbouring states. It is divided into inner and outer fringe.
+  The inner fringe contains the fringe items which are element of the knowledge 
+  state. They have probably been recently learned. The outer fringe contains those 
+  fringe items which are noe element of the knowledge state. For these items,
+  all prerequisites are fulfilled, i.e. the learner is ready to learn them now.
 }
 \value{
-  A list where each element represents the inner or outer fringe of 
-  one knowledge state respectively.
+  A set contining the fringe of \code{state}. If \code{state} is \code{NULL} then a
+  list containing the fringes of all knowledge states is returned.
 }
 \references{
   Doignon, J.-P., Falmagne, J.-C. (1999) \emph{Knowledge Spaces}. Heidelberg:
   Springer Verlag.
 }
 \seealso{
-  \code{\link{kstructure}}, \code{\link[sets]{set}}
+  \code{\link{kneighbourhood}}, \code{\link{kstructure}}, \code{\link[sets]{set}}
 }
 \examples{
 kst <- kstructure(set(set(), set("c"), set("a","b"), set("b","c"), 
@@ -47,12 +42,7 @@ kst <- kstructure(set(set(), set("c"), set("a","b"), set("b","c"),
    set("c","d","e"), set("a","b","c","d"), set("a","b","d","e"), 
    set("b","c","d","e"), set("a","b","c","d","e")))
 
-# inner fringe
-kfringe(kst, operation="inner")
-kfringe(kst, state=set("b", "c", "d", "e"), operation="inner")
-
-# outer fringe
-kfringe(kst, operation="outer")
-kfringe(kst, state=set("b", "c", "d", "e"), operation="outer")
+# fringe
+kfringe(kst, set("c","d","e"))
 }
 \keyword{math}

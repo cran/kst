@@ -1,6 +1,6 @@
 \documentclass[fleqn]{article}
 \usepackage[round,longnamesfirst]{natbib}
-\usepackage{graphicx,keyval,thumbpdf,a4wide,makeidx,color,colordvi}
+\usepackage{graphicx,keyval,a4wide,thumbpdf,makeidx,color,colordvi}
 \usepackage{amsfonts,hyperref}
 
 \newcommand\R{\textsf{R}}
@@ -32,9 +32,9 @@
 \definecolor{Blue}{rgb}{0,0,0.8}
 \definecolor{Red}{rgb}{0.7,0,0}
 
-\date{2017-12-11}
+\date{2018-01-03}
 \title{Knowledge Space Theory}
-\author{Christina Stahl}
+\author{Christina Stahl \and Cord Hockemeyer}
 %\VignetteIndexEntry{KST}
 %\VignetteDepends{kst}
 %\VignetteKeywords{knowledge structure, knowledge space}
@@ -137,12 +137,17 @@ structure to the specified item(s):
 ktrace(kst, items=set("c","d","e"))
 @
 
-Finally, the \codefunind{kfringe} function allows for determining the inner and outer fringe of a knowledge structure or a knowledge state respectively. Fringes determine the symmetric difference between a given knowledge state and its neighbouring states. The symmetric difference between a given knowledge state and its predecessor states is referred to as \emph{inner fringe}. These items can be interpreted as most recently learned and may for example be subject to learner review or assessment. The symmetric difference between a given knowledge state and its immediate successor states is referred to as \emph{outer fringe}. These items may be considered those a learner should tackle next and therefore allow for creating personalized learning paths.
+Fifthly, the \codefunind{kneighbourhood} function computers the neighbourhood of a
+knowledge state. 
+<<kneighbourhood>>=
+kneighbourhood(kst, state=set("a", "b"))
+@
+
+Finally, the \codefunind{kfringe} function allows for determining the fringe of a
+knowledge state. Fringes determine the symmetric difference between a given knowledge
+state and its neighbouring states.
 <<kfringe>>=
-kfringe(kst, operation="inner")
-kfringe(kst, state=set("a", "b"), operation="inner")
-kfringe(kst, operation="outer")
-kfringe(kst, state=set("a", "b"), operation="outer")
+kfringe(kst, state=set("a", "b"))
 @
 
 In addition, several properties of knowledge structures may be tested. Currently, only the functions \codefunind{kstructure\_is\_wellgraded} and the \codefunind{kstructure\_is\_space} are implemented (see Section 2 for the latter). 

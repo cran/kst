@@ -1,14 +1,17 @@
 \name{as.relation}
 \alias{as.relation.kstructure}
+\alias{as.relation.kbase}
 \title{Surmise Relations of Knowledge Structures}
 \description{
   Computes the surmise relation of knowledge structures.
 }
 \usage{
   \method{as.relation}{kstructure}(x, \dots)
+  \method{as.relation}{kbase}(x, \dots)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}} or
+           \code{\link{kbase}}.}
   \item{\dots}{Currently not used.}
 }
 \details{

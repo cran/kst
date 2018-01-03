@@ -10,7 +10,8 @@
   kspace(x)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}} or (for 
+           \code{kspace()} only) \code{\link{kbase}}.}
 }
 \details{
   A knowledge structure is considered a knowledge space if it includes one
@@ -21,8 +22,8 @@
   \code{kstructure_is_kspace} takes an arbitrary knowledge structure and
    tests for its space property.
 
-  \code{kspace} takes an arbitrary knowledge structure and returns the
-  corresponding knowledge space.
+  \code{kspace} takes an arbitrary knowledge structure or base and 
+  returns the corresponding knowledge space.
 }
 \value{
   For \code{kstructure_is_kspace} a logical value.

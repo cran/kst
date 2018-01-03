@@ -1,14 +1,15 @@
 \name{knotions}
 \alias{knotions}
-\title{Notions of Knowledge Structures}
+\title{Notions of Knowledge Structures or Bases}
 \description{
-  Computes notions of knowledge structures.
+  Computes notions of knowledge structures or bases.
 }
 \usage{
   knotions(x)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}} or
+           \code{\link{kbase}}.}
 }
 \details{
   A \emph{notion} is a set of items always jointly contained in some

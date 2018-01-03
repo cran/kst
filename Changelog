@@ -1,9 +1,24 @@
-2017-12-13: Version 0.2.2, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+2018-01-03: Version 0.3-0, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 
-* R/kstructure.R: kstructure() now includes the empty set and the full item set.
+* Corrected katoms.R grep call
+
+* Introduced new function neighbourhood()
+
+* Rewrote kfringe...() functions using neighbourhood function
+
+* Introduced new class kbase:
+- Changed return class for kbase()
+- New S3 methods as.relation.kbase and closure.kbase
+- Allowing kbase parameter in katoms(), kdomain(), knotions(), kspace()
+
+2017-12-12: Version 0.2-2, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* R/kstructure.R: kstructure() now includes the empty set and the full
+  item set.
 
 * man/kstructure.md: Changed accordingly.
 
-* R/plot.kstructure.R: Changes to reflect the (new) rules for suggested packages.
+* R/plot.kstructure.R: Changes to reflect the new rules for suggested 
+  packages.
 
-* Added a4wide.sry to vignettes directory
+* Added a4wide.sty to vignettes directory

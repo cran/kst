@@ -22,13 +22,11 @@ ktrace(kst, items=set("c","d","e"))
 ### is knowledge structure well-graded?
 kstructure_is_wellgraded(kst)
 
-### compute inner and outer fringe of whole knowledge structure
-kfringe(kst, state=NULL, fringe="inner")
-kfringe(kst, state=NULL, fringe="outer")
+### compute neighbourhood of a particular knowledge state
+kneighbourhood(kst, state=set("a", "b"))
 
-### compute inner and outer fringe of a particular knowledge state
-kfringe(kst, state=set("a", "b"), fringe="inner")
-kfringe(kst, state=set("a", "b"), fringe="outer")
+### compute fringe of a particular knowledge state
+kfringe(kst, state=set("a", "b"))
 
 ### convert to relation
 as.relation(kst)
@@ -60,7 +58,7 @@ ksp
 ### is structure a space?
 kstructure_is_kspace(ksp)
 
-### base of knowledge space
+### basis of knowledge space
 kbase(ksp)
 
 ### compute learning paths in knowledge structure

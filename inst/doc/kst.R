@@ -52,40 +52,43 @@ ktrace(kst, items=set("c","d","e"))
 
 
 ###################################################
-### code chunk number 8: kfringe
+### code chunk number 8: kneighbourhood
 ###################################################
-kfringe(kst, operation="inner")
-kfringe(kst, state=set("a", "b"), operation="inner")
-kfringe(kst, operation="outer")
-kfringe(kst, state=set("a", "b"), operation="outer")
+kneighbourhood(kst, state=set("a", "b"))
 
 
 ###################################################
-### code chunk number 9: kstructure_is_wellgraded
+### code chunk number 9: kfringe
+###################################################
+kfringe(kst, state=set("a", "b"))
+
+
+###################################################
+### code chunk number 10: kstructure_is_wellgraded
 ###################################################
 kstructure_is_wellgraded(kst)
 
 
 ###################################################
-### code chunk number 10: plot
+### code chunk number 11: plot
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
 
 ###################################################
-### code chunk number 11: kst.Rnw:165-166
+### code chunk number 12: kst.Rnw:170-171
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
 
 ###################################################
-### code chunk number 12: as.relation
+### code chunk number 13: as.relation
 ###################################################
 as.relation(kst)
 
 
 ###################################################
-### code chunk number 13: kassess
+### code chunk number 14: kassess
 ###################################################
 rp <- data.frame(a=c(1,1,0,1,1,1,1,0,0,0),b=c(0,1,0,1,0,1,0,1,0,0),
    c=c(0,0,0,0,1,1,1,0,1,0),d=c(0,0,1,1,1,1,0,0,0,1), e=c(0,0,1,1,1,1,0,0,0,0))
@@ -93,7 +96,7 @@ kassess(kst, rpatterns=rp)
 
 
 ###################################################
-### code chunk number 14: kvalidate
+### code chunk number 15: kvalidate
 ###################################################
 kvalidate(kst, rpatterns=rp, method="gamma")
 kvalidate(kst, rpatterns=rp, method="percent")
@@ -102,45 +105,45 @@ kvalidate(kst, rpatterns=rp, method="DA")
 
 
 ###################################################
-### code chunk number 15: closure
+### code chunk number 16: closure
 ###################################################
 closure(kst, operation="union")
 
 
 ###################################################
-### code chunk number 16: reduction
+### code chunk number 17: reduction
 ###################################################
 reduction(kst, operation="discrimination")
 
 
 ###################################################
-### code chunk number 17: kspace
+### code chunk number 18: kspace
 ###################################################
 ksp <- kspace(kst)
 ksp
 
 
 ###################################################
-### code chunk number 18: kstructure_is_space
+### code chunk number 19: kstructure_is_space
 ###################################################
 kstructure_is_kspace(ksp)
 
 
 ###################################################
-### code chunk number 19: kbase
+### code chunk number 20: kbase
 ###################################################
 kbase(ksp)
 
 
 ###################################################
-### code chunk number 20: lpath
+### code chunk number 21: lpath
 ###################################################
 lp <- lpath(ksp)
 lp
 
 
 ###################################################
-### code chunk number 21: lpath_is_gradation
+### code chunk number 22: lpath_is_gradation
 ###################################################
 lpath_is_gradation(lp)
 

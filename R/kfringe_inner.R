@@ -1,47 +1,34 @@
-### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-###
 ### kfringe_inner.R
 ###
-### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-###
-### dependencies: library(relations), library(sets)
-###
-### 2009-06-03: created
+### Compute the inner fringe of a knowledge state
 ###
 
-kfringe_inner <- function(x, state=NULL) {
+kfringe_inner <- function(kst, state) {
+  ## Check parameters
+  if (!inherits(kst, "kstructure"))
+    stop(sprintf("%s must be of class %s.", dQuote("kst"), dQuote("kstructure")))
+  if (is.null(state)) {
+    f <- list()
+    i <- 1
+    for (s in kst) {
+      x <- kfringe_inner(kst, s)
+      f[[i]] <- x
+      i <- i + 1
+    }
+    return(f)
+  }
+  if (!inherits(state, "set"))
+    stop(sprintf("%s must be of class %s.", dQuote("state"), dQuote("set")))
+  if (!set_contains_element(kst, state))
+    stop(sprintf("Specified state is no element of %s", dQuote("x")))
 
-   ### convert sets to relations
-   relmat <- set_outer(x, set_is_proper_subset)
-   relmat <- relation(domain=x, incidence=relmat)
-   reldom <- as.list(relation_domain(relmat)[[1]])
-   relmat <- relation_incidence(transitive_reduction(relmat))
-
-   ### compute inner fringes
-   ifringe <- list()
-   for (i in 1:length(reldom)) {
-      cs <- reldom[[i]]
-      if (sum(relmat[,i])==0) {
-         ifringe[[i]] <- cs
-      } else {
-         ps <- reldom[which(relmat[,i]==1)]
-         ifr <- set()
-         for (j in 1:length(ps)) {
-            psp <- ps[[j]]
-            ifr <- c(ifr, set_symdiff(cs, psp))
-         }
-         ifringe[[i]] <- ifr
-      }
-      names(ifringe)[[i]] <- colnames(relmat)[i]
-   }
-
-   ### select specified fringe
-   if (!is.null(state)) {
-      state <- LABEL(state)
-      ifringe <- ifringe[[state]]
-   }
-
-   ### return results
-   ifringe
+  n <- kneighbourhood(kst, state)
+  
+  f <- set()
+  for (i in n) {
+    if (set_is_subset(i, state))
+      f <- set_union(f, set_symdiff(i, state))
+  }
+  return(f)
 
 }

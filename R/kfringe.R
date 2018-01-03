@@ -1,33 +1,33 @@
-### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-###
 ### kfringe.R
 ###
-### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-###
-### dependencies: library(sets), library(relations)
-###
-### 2009-08-06: created
+### Compute the fringe of a knowledge state
 ###
 
-kfringe <- function(x, state=NULL, operation=c("inner", "outer")) {
+kfringe <- function(kst, state) {
+  ## Check parameters
+  if (!inherits(kst, "kstructure"))
+    stop(sprintf("%s must be of class %s.", dQuote("kst"), dQuote("kstructure")))
+  if (is.null(state)) {
+    f <- list()
+    i <- 1
+    for (s in kst) {
+      x <- kfringe(kst, s)
+      f[[i]] <- x
+      i <- i + 1
+    }
+    return(f)
+  }
+  if (!inherits(state, "set"))
+    stop(sprintf("%s must be of class %s.", dQuote("state"), dQuote("set")))
+  if (!set_contains_element(kst, state))
+    stop(sprintf("Specified state is no element of %s", dQuote("x")))
 
-   ### check type
-   operation <- match.arg(operation)
-
-   ### check x
-   if (!inherits(x, "kstructure"))
-      stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kstructure")))
-
-
-   ### check state
-   if (!is.null(state) && !set_contains_element(x, state))
-      stop(sprintf("Specified state is no element of %s", dQuote("x")))
-
-   ### return results
-   if (operation=="inner")
-      kfringe_inner(x, state=state)
-   else
-      kfringe_outer(x, state=state)
-
+  n <- kneighbourhood(kst, state)
+  
+  f <- set()
+  for (i in n) {
+    f <- set_union(f, set_symdiff(i, state))
+  }
+  return(f)
 
 }

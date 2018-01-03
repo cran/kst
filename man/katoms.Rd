@@ -8,7 +8,8 @@
   katoms(x, items)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}} or 
+           \code{\link{kbase}}.}
   \item{items}{A \code{\link[sets]{set}} of items for which atoms are computed.}
 }
 \details{

@@ -7,6 +7,7 @@
 ### dependencies: library(sets), library(relations)
 ###
 ### 2008-05-02: created
+### 2017-12-11: Include empty set and domain into result
 ###
 
 kstructure <- function(x) {

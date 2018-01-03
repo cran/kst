@@ -1,20 +1,23 @@
 \name{closure}
 \alias{closure.kstructure}
+\alias{closure.kbase}
 \title{Closure of a Knowledge Structure}
 \description{
   Computes the closure of knowledge structures.
 }
 \usage{
   \method{closure}{kstructure}(x, operation=c("union", "intersection"),...)
+  \method{closure}{kbase}(x, operation=c("union", "intersection"),...)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}} or 
+           \code{\link{kbase}}.}
   \item{operation}{The set operation under which the closure is computed.}
   \item{\dots}{Other arguments to be passed to methods.}
 }
 \details{
   The \code{closure} method for objects of class \code{\link{kstructure}}
-  performs the closure of a knowledge structure by computing
+  performs the closure of a knowledge structure or base by computing
   the \code{"union"}, \code{"intersection"}, \code{"complement"}, or
   symmetric difference of any two knowledge states. \code{"union"} is also
   used as a basis for the \code{\link{kspace}} function.

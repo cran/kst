@@ -1,6 +1,6 @@
 \name{kbase}
 \alias{kbase}
-\title{Base of a Knowledge Space}
+\title{base of a Knowledge Space}
 \description{
   Computes the base of a knowledge space.
 }
@@ -17,8 +17,8 @@
   structure has a base only if it is a knowledge space.
 }
 \value{
-  A \code{\link[sets]{set}} of sets where each subset represents one knowledge
-  state of the base.
+  A \code{\link{kbase}}, i.e. a \code{\link[sets]{set}} of sets where 
+  each subset represents one knowledge state of the base.
 }
 \references{
   Doignon, J.-P., Falmagne, J.-C. (1999) \emph{Knowledge Spaces}. Heidelberg:
