@@ -1,5 +1,5 @@
-70483aa33fc37fd106f27aba36959e03 *Changelog
-9e2ffa797d7de778b917da9cc26cf59d *DESCRIPTION
+7020c637da3a71f102f7029865c13ff5 *Changelog
+0fdc1266d9da5e2f9d6b499207c3b645 *DESCRIPTION
 f69fabefc8c6540f32f80e8ab0290071 *NAMESPACE
 f8f0cf8663e47064e5eff1b981da9238 *R/as.relation.kbase.R
 f96ac1381cd7c6cdb17392ea64674af5 *R/as.relation.kstructure.R
@@ -20,7 +20,7 @@ d0abd26bc4ec7d8927c4bb764226f4b4 *R/kstructure_is_kspace.R
 6a0f090ff0aa865e24b7159c4815d1e9 *R/kstructure_is_wellgraded.R
 33a4603d43dd8ceb296970e18f5c24d4 *R/ktrace.R
 f9fd1c78c1800d8fd71dd9358b1f6149 *R/kvalidate.R
-80e023a0c2ba3cd8085b80ae21e2bb05 *R/lpath.R
+da81398fa92d0a73a45554ca2b4ff2f4 *R/lpath.R
 365b7ec7e4b4a1574585ba46ddfe4515 *R/lpath_is_gradation.R
 34356abea33d5314f923c8fa87d4405d *R/plot.kstructure.R
 01976d643094acf36646b9028c6580d4 *R/reduction.kstructure.R
@@ -29,7 +29,7 @@ b3136412ea69763c8ad8c8089b5611ea *demo/00Index
 8399c94d16a3764bacd393149925ec74 *demo/kst.R
 edd9692dc18debc54466b5d9c77a9aaa *inst/doc/kst.R
 3ac48d6e8a93b9e7c5822fa16771c413 *inst/doc/kst.Rnw
-b4f24623f4939a73684ee505b41128a0 *inst/doc/kst.pdf
+b68c1fcbc9c7d17a15e4a9b6f5077956 *inst/doc/kst.pdf
 78f0064dbcfd4f592cc68c3bdd19a267 *man/as.relation.Rd
 5623f3b68c8f9083068f2033dd0c5f8b *man/closure.Rd
 28f300041ff6730ef5e872fb08c49876 *man/kassess.Rd
@@ -43,11 +43,11 @@ dc21f0e8509bb14658c143e4e7284ca6 *man/kstructure.Rd
 d65d425fa63af445a22010f76df779dc *man/kstructure_is_wellgraded.Rd
 aae96aec32f3a943959c2ae75be894e5 *man/ktrace.Rd
 acf6b648e00094e5d3bc457081c2f08b *man/kvalidate.Rd
-543050e3d27ec67f7c5f99502426cff6 *man/lpath.Rd
+6496929b649a9127c451444fefa85729 *man/lpath.Rd
 d72619cbe53336d2db4acec5e75bd68a *man/lpath_is_gradation.Rd
 64d1512526d2a984b6d05367d7735e01 *man/plot.Rd
 1910d3242e7b9aedf5e54776e5a64594 *man/reduction.Rd
-a28481e3525f145e8f9fe5104e60bc35 *man/space.Rd
+2a84f261dabe6118e81f73f14c1691ae *man/space_property.Rd
 717cb53b4323c7ff0cf7f675b11dfe05 *vignettes/a4wide.sty
 8aae94c2b57a5b40cec020ee70aeaea3 *vignettes/abbrvnat.bst
 3ac48d6e8a93b9e7c5822fa16771c413 *vignettes/kst.Rnw

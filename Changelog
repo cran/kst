@@ -1,3 +1,8 @@
+2018-02-26: Version 0.3-1, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* Changed lpath.R making leaning paths sets instead of tuples according
+  to the theory
+
 2018-01-03: Version 0.3-0, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 
 * Corrected katoms.R grep call

@@ -1,4 +1,4 @@
-\name{space}
+\name{space_property}
 \alias{kstructure_is_kspace}
 \alias{kspace}
 \title{Space Property of a Knowledge Structure}

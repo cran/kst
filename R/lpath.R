@@ -29,7 +29,7 @@ lpath <- function(x) {
    FUN <- function(j, path=NULL) {
        ns <- which(relmat[,j])
        if (length(ns)<1) {
-           path <- as.tuple(reldom[c(path, ts[i])]) ## ts[i]??
+           path <- as.set(reldom[c(path, ts[i])]) ## ts[i]??
            class(path) <- unique(c("lpath", class(path)))
            lpath <<- c(lpath, list(path))
        } else {

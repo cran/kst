@@ -14,7 +14,8 @@
   A learning path in a knowledge structure is a maximal sequence of 
   knowledge states, which allows learners to gradually traverse a 
   knowledge structure from the empty set \emph{\{\}} (or any other 
-  bottom state) to the full set of domain problems \emph{Q}.
+  bottom state) to the full set of domain problems \emph{Q}. 
+  Mathematically, it is represented as a set of states.
 
   \code{lpath} takes an arbitrary knowledge structure and computes all 
   possible learning paths in the respective knowledge structure.
