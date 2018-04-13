@@ -8,6 +8,7 @@
 ###
 ### 2008-05-02: created
 ### 2017-12-11: Include empty set and domain into result
+### 2018-03-15: Removed character conversion for sets
 ###
 
 kstructure <- function(x) {

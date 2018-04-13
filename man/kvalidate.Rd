@@ -5,7 +5,7 @@
   Validates prerequisite relations or knowledge structures
 }
 \usage{
-  kvalidate(x, rpatterns=NULL, method=c("gamma","percent","VC","DA"))
+  kvalidate(x, rpatterns=NULL, method=c("gamma","percent","VC","DI","DA"))
 }
 \arguments{
   \item{x}{An \R object of class \code{\link{kstructure}}.}
@@ -45,26 +45,48 @@
   of items, and \eqn{v_{xy}}{vxy} again refers to the number of discordant
   pairs. Generally, a low VC supports the validity of prerequisite relations.
 
-  In contrast to the other three indices, the \emph{Distance Agreement
-  Coefficient} (method \code{"DA"}) validates the resulting knowledge
-  structure. For this purpose it compares the average symmetric distance
+  In contrast to the other three indices, the \emph{Discrepancy Index} (method
+  \code{"DI"} and the \emph{Distance Agreement
+  Coefficient} (method \code{"DA"}) validate the resulting knowledge
+  structure. The Discrepancy Index is the average distance between the response patterns
+  and the knowledge structure
+  \deqn{DI = \sum_{r\in R}\min_{K\in\mathcal{K}}d(r,K) \frac{1}{n}}
+  where \eqn{d} is the symmetric set difference. Generally, a lower DI.value indicates
+  a better fit between a knowledge structure and a set of response patterns.
+  
+  The Distance Agreement Coefficient compares the average symmetric distance
   between the knowledge structure and respone patterns (referred to as
   \emph{ddat}) to the average symmetric distance between the knowledge
   structure and the power set of response patterns (referred to as
   \emph{dpot}). By calculating the ratio of \emph{ddat} and \emph{dpot},
   the DA is determined. Generally, a lower DA-value indicates a better fit
-  between a knowledge structure and a set of response patterns.
+  between a knowledge structure and a set of response patterns. Please note that 
+  the \emph{ddat} value is equal to the \emph{DI} index. The DA coefficient is insofar 
+  a further development of the DI index as it takes into account the sizes of
+  the domain and the knowledge structure and thus makes the DA values better
+  comparable.
 }
 \value{
-  Depending on the desired assessment method, a numeric value (methods
-  \code{"gamma"} and \code{"VC"}), a data frame with results for
+  Depending on the desired assessment method, a data frame with results for
   each domain problem (method \code{"percent"}), or a list
-  (method \code{"DA"}) with the following components:
+  (methods \code{"gamma"}, \code{"VC"}, \code{"DI"} and \code{"DA"}) with
+  the following components:
+  \item{gamma}{The gamma-value.}
+  \item{nc}{Number of concordant pairs.}
+  \item{nd}{Number of discordant pairs.}
+  for the \code{"gamma"} method,
+  \item{vc}{The VC-value.}
+  \item{nd}{Number of discordant pairs.}
+  for the \code{"VC"} method,
+  \item{di}{The DI-value.}
+  \item{di_dist}{The distance table for DI.}
+  for the \code{"DI"} method, and
   \item{ddat}{The ddat-value.}
   \item{ddat_dist}{The distance table for ddat.}
   \item{dpot}{The dpot-value.}
   \item{dpot_dist}{The distance table for dpot.}
   \item{DA}{The Distance Agreement Coefficient.}
+  for the \code{"DA"} nethod.
 }
 \seealso{
   \code{\link{kstructure}}
@@ -72,7 +94,11 @@
 \references{
   Goodman, L. A. & Kruskal, W. H. (1972) Measures of association for
   cross classification. \emph{Journal of the American Statistical
-  Association}, 67.
+  Association,} 67.
+
+  Kambouri, M., Koppen, M., Villano, M., & Falmagne, J.-C. (1994). Knowledge assessment:
+  Tapping human expertise by the QUERY routine. International \emph{Journal of
+  Human–Computer–Studies, 40,} 119–151.
 
   Schrepp, M. (1999) An empirical test of a process model for letter
   series completion problems. In D. Albert & J. Lukas (Eds.),
@@ -98,6 +124,9 @@ kvalidate(kst, rpatterns=rp, method="percent")
 
 # Violational Coefficient
 kvalidate(kst, rpatterns=rp, method="VC")
+
+# Discrepancy Index
+kvalidate(kst, rpatterns=rp, method="DI")
 
 # Distance Agreement Coefficient
 kvalidate(kst, rpatterns=rp, method="DA")

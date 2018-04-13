@@ -1,3 +1,17 @@
+2018-04-13: Version 0.4-0, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* Extending kvalidate() results for VC and Gamma coefficients
+* Introducing new S3 method as.matrix.kstructure()
+* Completely rewriting as.relation.kstructure() and as.relation.kbase()
+
+2018-04-09: Version 0.3-3, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* Extending kvalidate() by method "DI" (Discrepancy Index)
+
+2018-03-01: Version 0.3-2, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* New function as.famset()
+
 2018-02-26: Version 0.3-1, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 
 * Changed lpath.R making leaning paths sets instead of tuples according

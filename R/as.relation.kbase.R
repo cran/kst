@@ -18,16 +18,17 @@ as.relation.kbase <- function(x,...) {
 
    ### compute relation
    dom <- kdomain(x)
-   atoms <- katoms(x, items=dom)
    relmat <- mat.or.vec(length(dom), length(dom))
    colnames(relmat) <- dom
    rownames(relmat) <- dom
-   for (i in 1:length(dom)) {
-      items <- unique(unlist(atoms[[i]]))
-      relmat[items,i] <- 1
+   strmat <- as.binaryMatrix(x)
+   for (i in 1:dim(strmat)[2]) {
+     for (j in 1:dim(strmat)[2]) {
+       if (all(strmat[,i] <= strmat[,j])) {
+         relmat[j,i] <- 1
+       }
+     }
    }
    rel <- as.relation(relmat)
-
-   ### return results
    rel
 }

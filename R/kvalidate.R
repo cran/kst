@@ -9,7 +9,7 @@
 ### 2008-04-14: created
 ###
 
-kvalidate <- function(x, rpatterns=NULL, method=c("gamma","percent","VC","DA")) {
+kvalidate <- function(x, rpatterns=NULL, method=c("gamma","percent","VC","DI","DA")) {
 
    ### check x
    if (!inherits(x, "kstructure")) {
@@ -27,7 +27,8 @@ kvalidate <- function(x, rpatterns=NULL, method=c("gamma","percent","VC","DA")) 
    relmat <- relmat[,order(colnames(relmat))]
 
    ### check method
-   if (method!="gamma" & method!="percent" & method!="VC" & method!="DA") {
+   if (method!="gamma" & method!="percent" &   
+     method!="VC" & method!="DA" & method!="DI") {
       stop("Invalid validation method.")
    } 
 
@@ -43,7 +44,10 @@ kvalidate <- function(x, rpatterns=NULL, method=c("gamma","percent","VC","DA")) 
             }
          }
       }
-      validate <- (nc-nd)/(nc+nd)
+      validate <- NULL
+      validate$gamma <- (nc-nd)/(nc+nd)
+      validate$nc <- nc
+      validate$nd <- nd
 
    } else if (method=="percent") {
    ### percent
@@ -60,7 +64,9 @@ kvalidate <- function(x, rpatterns=NULL, method=c("gamma","percent","VC","DA")) 
             }
          }
       }
-      validate <- (1/(nrow(rp)*(sum(relmat)-ncol(rp))))*nd
+      validate <- NULL
+      validate$vc <- (1/(nrow(rp)*(sum(relmat)-ncol(rp))))*nd
+      validate$nd <- nd
 
    } else if (method=="DA") {
    ### distance agreement coefficient
@@ -85,6 +91,16 @@ kvalidate <- function(x, rpatterns=NULL, method=c("gamma","percent","VC","DA")) 
       validate$dpot_dist <- dpot_dist
       da <- ddat/dpot
       validate$DA <- da
+   } else if (method=="DI") {
+   ### Discrepancy Index
+      kmatrix <- 0+(t(sapply(x, function(z) dom %in% z)))
+      colnames(kmatrix) <- dom
+      Distances <- apply(dist(rp, kmatrix, method="Manhattan"), 1, min)
+      di <- mean(Distances)
+      di_dist <- table(Distances)
+      validate <- NULL
+      validate$di <- di
+      validate$di_dist <- di_dist
    }
 
    ### return results

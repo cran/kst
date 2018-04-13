@@ -32,7 +32,7 @@
 \definecolor{Blue}{rgb}{0,0,0.8}
 \definecolor{Red}{rgb}{0.7,0,0}
 
-\date{2018-01-03}
+% \date{2018-01-03}
 \title{Knowledge Space Theory}
 \author{Christina Stahl \and Cord Hockemeyer}
 %\VignetteIndexEntry{KST}
@@ -325,6 +325,23 @@ lp
 A learning path is considered a \emph{gradation} if each state in the respective learning path differs from its predecessor and/or successor state by a single item/notion. The \codefunind{lpath\_is\_gradation} function allows for testing the gradation property of a list of learning paths:
 <<lpath_is_gradation>>=
 lpath_is_gradation(lp)
+@
+
+\section{Utilities}
+Other KST related \R\ packages (\pkg{DAKS} and \pkg{pks}) use matrices
+as representation for knowledge structures and data sets. The
+\codefunind{as.famset} function converts such matrices into families
+(i.e. \code{sets}) of \code{sets}.  
+<<as.famset>>=
+m <- matrix(c(1, 0, 0, 1, 1, 0), nrow = 2, ncol = 3)
+m
+as.famset(m)
+as.famset(m, as.letters = FALSE)
+@
+The inverse function is given by the \codefunind{as.binaryMatrix} function
+which returns the matrix representation of a \code{kstructure}.
+<<as.matrix>>=
+as.binaryMatrix(ksp)
 @
 
 {\small

@@ -2,7 +2,9 @@ import("sets", "relations")
 importFrom("graphics", "plot")
 import(proxy)
 
-export("kassess",
+export("as.binaryMatrix",
+       "as.famset",
+       "kassess",
        "katoms",
        "kbase",
        "kdomain",

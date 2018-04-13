@@ -1,4 +1,5 @@
 ### R code from vignette source 'kst.Rnw'
+### Encoding: UTF-8
 
 ###################################################
 ### code chunk number 1: kst.Rnw:56-58
@@ -146,5 +147,20 @@ lp
 ### code chunk number 22: lpath_is_gradation
 ###################################################
 lpath_is_gradation(lp)
+
+
+###################################################
+### code chunk number 23: as.famset
+###################################################
+m <- matrix(c(1, 0, 0, 1, 1, 0), nrow = 2, ncol = 3)
+m
+as.famset(m)
+as.famset(m, as.letters = FALSE)
+
+
+###################################################
+### code chunk number 24: as.matrix
+###################################################
+as.binaryMatrix(ksp)
 
 

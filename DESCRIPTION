@@ -1,6 +1,6 @@
 Package: kst
-Version: 0.3-1
-Date: 2018-02-26
+Version: 0.4-0
+Date: 2018-04-13
 Title: Knowledge Space Theory
 Authors@R: c(person(given = "Christina", family = "Stahl", role = c("aut")),
              person(given = "David", family = "Meyer", role = c("aut")),
@@ -21,5 +21,6 @@ Author: Christina Stahl [aut],
 Maintainer: Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 NeedsCompilation: no
 Repository: CRAN
-Packaged: 2018-02-26 09:40:07 UTC; cord
-Date/Publication: 2018-02-26 12:35:20 UTC
+Encoding: UTF-8
+Packaged: 2018-04-13 12:56:42 UTC; cord
+Date/Publication: 2018-04-13 14:30:20 UTC
