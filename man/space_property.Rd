@@ -15,15 +15,16 @@
 }
 \details{
   A knowledge structure is considered a knowledge space if it includes one
-  state for the empty set \emph{\{\}}, one state for the full set of domain
+  state for the empty set \{\}, one state for the full set of domain
   problems \emph{Q}, and a state for the union of any two knowledge states
   (i.e., the closure under union).
 
   \code{kstructure_is_kspace} takes an arbitrary knowledge structure and
    tests for its space property.
 
-  \code{kspace} takes an arbitrary knowledge structure or base and 
-  returns the corresponding knowledge space.
+  \code{kspace} takes an arbitrary knowledge structure, base, or family
+  of sets and returns the corresponding knowledge space, i.e. its closure
+  under union.
 }
 \value{
   For \code{kstructure_is_kspace} a logical value.

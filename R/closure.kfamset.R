@@ -1,6 +1,6 @@
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ###
-### closure.kbase.R
+### closure.kfamset
 ###
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ###
@@ -9,11 +9,11 @@
 ### 2017-12-13: created
 ###
 
-closure.kbase <- function(x, operation=c("union", "intersection"), ...) {
+closure.kfamset <- function(x, operation=c("union", "intersection"), ...) {
 
    ### check x
-   if (!inherits(x, "kbase")) {
-      stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kbase")))
+   if (!inherits(x, "kfamset")) {
+      stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kfamset")))
    }
 
    clos <- if(operation == "union") {

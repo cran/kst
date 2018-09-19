@@ -19,11 +19,11 @@
   An \R object of class \code{matrix}.
 }
 \seealso{
-  \code{\link{kstructure}}, \code{\link[pks]{as.binmat}}
+  \code{\link{as.famset}}, \code{\link{kspace}}, \code{\link{kstructure}}
 }
 \examples{
 kst <- kstructure(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 
    set("a","b","d","e"), set("a","c","d","e"), set("a","b","c","d","e")))
-as.matrix(kst)
+as.binaryMatrix(kst)
 }
 \keyword{math}

@@ -1,6 +1,7 @@
 \name{closure}
 \alias{closure.kstructure}
 \alias{closure.kbase}
+\alias{closure.kfamset}
 \title{Closure of a Knowledge Structure}
 \description{
   Computes the closure of knowledge structures.
@@ -8,16 +9,19 @@
 \usage{
   \method{closure}{kstructure}(x, operation=c("union", "intersection"),...)
   \method{closure}{kbase}(x, operation=c("union", "intersection"),...)
+  \method{closure}{kfamset}(x, operation=c("union", "intersection"),...)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}} or 
-           \code{\link{kbase}}.}
-  \item{operation}{The set operation under which the closure is computed.}
+  \item{x}{An \R object of class \code{\link{kstructure}},
+           \code{\link{kbase}}, or \code{\link{kfamset}}.}
+  \item{operation}{The set operation under which the closure is computed
+	  ("union" or "intersection").}
   \item{\dots}{Other arguments to be passed to methods.}
 }
 \details{
-  The \code{closure} method for objects of class \code{\link{kstructure}}
-  performs the closure of a knowledge structure or base by computing
+  The \code{closure} method for objects of class \code{\link{kstructure}},
+  \code{\link{kbase}}, or \code{\link{kfamset}} performs the closure of a 
+  knowledge structure, base, or family of sets by computing
   the \code{"union"}, \code{"intersection"}, \code{"complement"}, or
   symmetric difference of any two knowledge states. \code{"union"} is also
   used as a basis for the \code{\link{kspace}} function.
@@ -34,7 +38,8 @@
   Springer Verlag.
 }
 \seealso{
-  \code{\link{kstructure}}, \code{\link{kspace}}, \code{\link[sets]{closure}}
+  \code{\link{kstructure}}, \code{\link{kspace}}, \code{\link{kbase}}, 
+  \code{\link{kfamset}}, \code{\link[sets]{closure}}
 }
 \examples{
 kst <- kstructure(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 

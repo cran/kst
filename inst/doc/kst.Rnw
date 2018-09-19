@@ -1,7 +1,7 @@
 \documentclass[fleqn]{article}
 \usepackage[round,longnamesfirst]{natbib}
 \usepackage{graphicx,keyval,a4wide,thumbpdf,makeidx,color,colordvi}
-\usepackage{amsfonts,hyperref}
+\usepackage{amsfonts,hyperref,graphicx}
 
 \newcommand\R{\textsf{R}}
 \newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
@@ -53,14 +53,17 @@ structures and knowledge spaces available in \R{} through the \pkg{kst}
 package.
 \end{abstract}
 
+\tableofcontents
+% \clearpage
+
 <<echo=FALSE>>=
 options(width = 80)
 library("kst")
 @ %
 
-%\section{Introduction}
-%\label{sec:introduction}
-
+\section{Introduction}
+\label{sec:introduction}
+\noindent
 Knowledge Space Theory \citep{Doignon+Falmagne:1999} is a set- and
 order-theoretical 
 framework, which proposes mathematical formalisms to operationalize knowledge 
@@ -76,6 +79,33 @@ possible solution patterns to a more manageable amount of knowledge states.
 Each of these knowledge states represents the subset of items an individual 
 is capable of solving. The collection of all knowledge states captures the
 organization of the domain and is referred to as \emph{knowledge structure}.
+
+\section{Classes introduced in the \pkg{kst} package}
+\label{sec:classes}
+
+The \pkg{kst} package makes heavily usage of \R{} classes. Figure~\ref{fig:classes}
+gives an overview of these classes and the relationships between them.
+\begin{figure}[htbp]
+    \begin{center}
+	\includegraphics{kst-classes.png}
+	\caption{\R{} classes in the \pkg{kst} package}\label{fig:classes}
+    \end{center}
+\end{figure}
+
+The basic class is the \codeind{kfamset} class which describes quite
+genereally a family of sets. All other classes are effectively sub-classes
+of \code{kfamset}. 
+
+The \codeind{kstructure} class describes knowledge structures. The difference
+between a \code{kfamset} and a \code{kstructure} is that the latter contains
+the empty set $\emptyset$ and the full item set. A special case of 
+knowledge structures are the knowldge spaces described by the \code{kspace}
+class: they are closed under union. 
+
+The fourth class defined in \pkg{kst} ist the \codeind{kbasis} class which
+describes the basis of a knowledge space. Please note that a \code{kbasis}
+does not contain the empty set $\emptyset$ and often neither the full
+item set.
 
 \section{Knowledge Structures}
 \label{sec:kstructure}
@@ -160,7 +190,7 @@ kstructure_is_wellgraded(kst)
 Apart from these basic operations, the \pkg{kst} package also provides 
 plotting functionalities for knowledge structures (see README for details). The \codefunind{plot} 
 method takes an arbitrary knowledge structure and plots a Hasse Diagram of 
-the respective knowledge structure (see Figure 1):
+the respective knowledge structure (see Figure~\ref{fig:hasse-kst}):
 <<plot,fig=FALSE>>=
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 @
@@ -171,7 +201,7 @@ if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 <<plot>>
 @
 \caption{Knowledge Structure}
-\label{fig:plot}
+\label{fig:hasse-kst}
 \end{center}
 \end{figure}
 
@@ -187,6 +217,7 @@ as.relation(kst)
 In those cases where individuals' response patterns are available, they may 
 be used to assess individuals or validate a knowledge structure.
 
+\subsection{Assessment and Validation}
 The \codefunind{kassess} function assigns individuals to their corresponding 
 knowledge state in a knowledge structure. Currently only 
 \dQuote{deterministic} assessment is implemented. Assessing individuals based 
@@ -258,14 +289,15 @@ kvalidate(kst, rpatterns=rp, method="VC")
 kvalidate(kst, rpatterns=rp, method="DA")
 @
 
+\subsection{Set--related Methods}
 Apart from these kst-specific functions, the \pkg{kst} package also provides 
 general set-related methods. In particular, these include methods pertaining 
 to the \emph{closure} and \emph{reduction} of sets.
 
-The \codefunind{closure} method for objects of class \codefun{kstructure} 
+The \codefunind{closure} method for objects of class \codeind{kstructure} 
 performs the closure of a knowledge structure by computing the union or 
-intersection of any two knowledge states. \code{union} is also used as 
-a basis for the \codefun{kspace} function (see next section).
+intersection of any two knowledge states. \codefunind{union} is also used as 
+a basis for the \codefunind{kspace} function (see next section).
 <<closure>>=
 closure(kst, operation="union")
 @
@@ -279,6 +311,34 @@ contains a single item.
 <<reduction>>=
 reduction(kst, operation="discrimination")
 @
+
+\subsection{Families of Sets}\label{sec:famset}
+A more general concept than the knowledge structures represented by
+\codeind{kstructure}s are the families of (sub)sets represented by the
+\codeind{kfamset} class. The \codefunind{kfamset} constructor takes the same
+arguments as the \codefunind{kstructure} constructor.
+<<kfamset>>=
+# An endorelation representing a surmise relation
+# A set of sets representing knowledge states (e.g., clauses of a surmise system)
+kfs <- kfamset(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 
+   set("a","b","d","e"), set("a","c","d","e"), set("a","b","c","d","e")))
+kfs
+@
+Figure~\ref{fig:hasse-kfamset} shows the Hasse diagram of this family of sets.
+Please note the difference to Fig.~\ref{fig:hasse-kst} which also contains the empty set $\emptyset$.
+<<plotfamset,fig=FALSE>>=
+if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
+@
+
+\begin{figure}[h]
+\begin{center}
+<<fig=TRUE,echo=FALSE>>=
+<<plotfamset>>
+@
+\caption{Family of sets}
+\label{fig:hasse-kfamset}
+\end{center}
+\end{figure}
 
 \section{Knowledge Spaces}
 \label{sec:kspace}
@@ -304,7 +364,7 @@ kstructure_is_kspace(ksp)
 Apart from the functions described in the previous section, which can 
 likewise be performed on knowledge spaces, the package \pkg{kst} provides the 
 additional function \codefunind{kbase}, which is only applicable to knowledge 
-spaces. The \codefun{kbase} function takes an arbitrary knowledge space and 
+spaces. The \codefunind{kbase} function takes an arbitrary knowledge space and 
 computes its \emph{base}. A base for a knowledge space is a minimal family of 
 knowledge states spanning the knowledge space, i.e., the base includes the 
 minimal states sufficient to reconstruct the full knowledge space. 

@@ -16,7 +16,7 @@
   have a symmetric seu difference of 1.
 }
 \value{
-  A set of sets contining the neighbourhood  of \code{state}
+  A set of sets containing the neighbourhood  of \code{state}
 }
 \references{
   Doignon, J.-P., Falmagne, J.-C. (1999) \emph{Knowledge Spaces}. Heidelberg:

@@ -1,14 +1,16 @@
 \name{reduction}
 \alias{reduction.kstructure}
+\alias{reduction.kfamset}
 \title{Reduction of Knowledge Structures}
 \description{
   Computes the reduction of knowledge structures.
 }
 \usage{
   \method{reduction}{kstructure}(x, operation=c("discrimination", "union", "intersection"),...)
+  \method{reduction}{kfamset}(x, operation=c("discrimination", "union", "intersection"),...)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}} or \code{\link{kfamset}}.}
   \item{operation}{The set operation under which the reduction is computed.}
   \item{\dots}{Other arguments to be passed to methods.}
 }

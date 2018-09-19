@@ -18,6 +18,7 @@ kneighbourhood <- function(kst, state) {
       n <- set_union(n, set(k))
     }
   }
+  class(n) <- unique(c("kfamset", class(n)))
   return(n)
 }
 

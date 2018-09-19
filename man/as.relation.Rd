@@ -1,6 +1,7 @@
 \name{as.relation}
 \alias{as.relation.kstructure}
 \alias{as.relation.kbase}
+\alias{as.relation.kfamset}
 \title{Surmise Relations of Knowledge Structures}
 \description{
   Computes the surmise relation of knowledge structures.
@@ -8,10 +9,11 @@
 \usage{
   \method{as.relation}{kstructure}(x, \dots)
   \method{as.relation}{kbase}(x, \dots)
+  \method{as.relation}{kfamset}(x, \dots)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}} or
-           \code{\link{kbase}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}},
+           \code{\link{kbase}}, or \code{\link{kfamset}}.}
   \item{\dots}{Currently not used.}
 }
 \details{
@@ -28,7 +30,8 @@
   Springer Verlag.
 }
 \seealso{
-  \code{\link{kstructure}}, \code{\link[relations]{relation}}, \code{\link[relations]{plot}}
+  \code{\link{kstructure}}, \code{\link{kbase}}, \code{\link{kfamset}},
+  \code{\link[relations]{relation}}, \code{\link[relations]{plot}}
 }
 \examples{
 kst <- kstructure(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 

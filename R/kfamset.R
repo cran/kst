@@ -1,17 +1,15 @@
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ###
-### kstructure.R
+### kfamset
 ###
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ###
 ### dependencies: library(sets), library(relations)
 ###
-### 2008-05-02: created
-### 2017-12-11: Include empty set and domain into result
-### 2018-03-15: Removed character conversion for sets
+### 2018-09-17: created
 ###
 
-kstructure <- function(x) {
+kfamset <- function(x) {
 
    ### check x
    if (!inherits(x, "relation") & !inherits(x, "set")) {
@@ -26,10 +24,8 @@ kstructure <- function(x) {
    } else {
       x <- as.set(lapply(lapply(x, as.character),as.set))
    }
-   dom <- as.set(unique(unlist(as.list(x))))
-   x <- set_union(x, set(set(), dom))
    names(x) <- NULL
-   class(x) <- unique(c("kstructure", "kfamset", class(x)))
+   class(x) <- unique(c("kfamset", class(x)))
 
    ### return structure
    x

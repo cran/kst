@@ -8,7 +8,10 @@ export("as.binaryMatrix",
        "katoms",
        "kbase",
        "kdomain",
+       "kfamset",
        "kfringe",
+       "kfringe_inner",
+       "kfringe_outer",
        "kneighbourhood",
        "knotions",
        "kspace",
@@ -23,7 +26,12 @@ export("as.binaryMatrix",
 
 S3method("as.relation", "kstructure")
 S3method("as.relation", "kbase")
+S3method("as.relation", "kfamset")
 S3method("closure", "kstructure")
 S3method("closure", "kbase")
+S3method("closure", "kfamset")
 S3method("plot", "kstructure")
+S3method("plot", "kbase")
+S3method("plot", "kfamset")
 S3method("reduction", "kstructure")
+S3method("reduction", "kfamset")

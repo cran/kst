@@ -29,7 +29,7 @@
   An \R object of class \code{\link[sets]{set}} containing \code{sets}..
 }
 \seealso{
-  \code{\link[pks]{conversion}}, \code{\link[sets]{set}}
+  \code{\link{as.binaryMatrix}}, \code{\link[sets]{set}}
 }
 \examples{
 m <- matrix(c(1, 0, 0, 1, 1, 0), nrow = 2, ncol = 3)

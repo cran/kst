@@ -1,7 +1,18 @@
+2018-09-17: Version 0.4-1, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* Introducing kfamset class
+* New methods plot.kfamset, closure.kfamset, reduction.kfamset
+  as.relation.kfamset 
+* Updating documentation
+
+2018-04-14: Version 0.4-1, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* Removing pks-crossreferences from documentation
+
 2018-04-13: Version 0.4-0, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 
 * Extending kvalidate() results for VC and Gamma coefficients
-* Introducing new S3 method as.matrix.kstructure()
+* Introducing new function as.binaryMatrix()
 * Completely rewriting as.relation.kstructure() and as.relation.kbase()
 
 2018-04-09: Version 0.3-3, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>

@@ -25,6 +25,7 @@ as.famset <- function(m, as.letters = TRUE) {
   apply(m, 1, function(v) {
     fam <<- set_union(fam, set(as.set(names[which(v==1)])))
   })
+  class(fam) <- unique(c("kfamset", class(fam)))
   
   fam
 }

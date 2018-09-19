@@ -24,7 +24,7 @@ kbase <- function(x) {
    atoms <- katoms(x, kdomain(x))
    names(atoms) <- NULL
    base <- as.set(unlist(atoms, recursive=FALSE))
-   class(base) <- c("kbase", class(base))
+   class(base) <- unique(c("kbase", "kfamset", class(base)))
 
    ### return base
    base

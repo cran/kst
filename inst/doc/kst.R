@@ -2,7 +2,7 @@
 ### Encoding: UTF-8
 
 ###################################################
-### code chunk number 1: kst.Rnw:56-58
+### code chunk number 1: kst.Rnw:59-61
 ###################################################
 options(width = 80)
 library("kst")
@@ -77,7 +77,7 @@ if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
 
 ###################################################
-### code chunk number 12: kst.Rnw:170-171
+### code chunk number 12: kst.Rnw:200-201
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
@@ -118,39 +118,61 @@ reduction(kst, operation="discrimination")
 
 
 ###################################################
-### code chunk number 18: kspace
+### code chunk number 18: kfamset
+###################################################
+# An endorelation representing a surmise relation
+# A set of sets representing knowledge states (e.g., clauses of a surmise system)
+kfs <- kfamset(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 
+   set("a","b","d","e"), set("a","c","d","e"), set("a","b","c","d","e")))
+kfs
+
+
+###################################################
+### code chunk number 19: plotfamset
+###################################################
+if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
+
+
+###################################################
+### code chunk number 20: kst.Rnw:335-336
+###################################################
+if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
+
+
+###################################################
+### code chunk number 21: kspace
 ###################################################
 ksp <- kspace(kst)
 ksp
 
 
 ###################################################
-### code chunk number 19: kstructure_is_space
+### code chunk number 22: kstructure_is_space
 ###################################################
 kstructure_is_kspace(ksp)
 
 
 ###################################################
-### code chunk number 20: kbase
+### code chunk number 23: kbase
 ###################################################
 kbase(ksp)
 
 
 ###################################################
-### code chunk number 21: lpath
+### code chunk number 24: lpath
 ###################################################
 lp <- lpath(ksp)
 lp
 
 
 ###################################################
-### code chunk number 22: lpath_is_gradation
+### code chunk number 25: lpath_is_gradation
 ###################################################
 lpath_is_gradation(lp)
 
 
 ###################################################
-### code chunk number 23: as.famset
+### code chunk number 26: as.famset
 ###################################################
 m <- matrix(c(1, 0, 0, 1, 1, 0), nrow = 2, ncol = 3)
 m
@@ -159,7 +181,7 @@ as.famset(m, as.letters = FALSE)
 
 
 ###################################################
-### code chunk number 24: as.matrix
+### code chunk number 27: as.matrix
 ###################################################
 as.binaryMatrix(ksp)
 

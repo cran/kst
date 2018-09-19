@@ -8,8 +8,8 @@
   kdomain(x)
 }
 \arguments{
-  \item{x}{An \R object of class \code{\link{kstructure}} or
-           \code{\link{kbase}}.}
+  \item{x}{An \R object of class \code{\link{kstructure}},
+           \code{\link{kbase}}, or \code{\link{kfamset}}.}
 }
 \details{
   A \emph{domain} is a set of questions or items representing a field of
@@ -24,7 +24,8 @@
   Springer Verlag.
 }
 \seealso{
-  \code{\link{kstructure}}, \code{\link[sets]{set}}
+  \code{\link{kstructure}}, \code{\link{kbase}},
+  \code{\link{kfamset}}, \code{\link[sets]{set}}
 }
 \examples{
 kst <- kstructure(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 

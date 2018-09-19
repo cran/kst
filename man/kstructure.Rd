@@ -1,11 +1,13 @@
 \name{kstructure}
 \alias{kstructure}
+\alias{kfamset}
 \title{Knowledge Structure}
 \description{
   Creates a knowledge structure from a surmise relation or knowledge states. 
 }
 \usage{
   kstructure(x)
+  kfamset(x)
 }
 \arguments{
   \item{x}{Either an endorelation (see \code{\link[relations]{relation}})
@@ -32,6 +34,9 @@
   or a set of sets each representing one knowledge state (e.g., one clause
   of a surmise system) and returns the corresponding knowledge structure.
   A knowledge structure always contains the empty set and \emph{Q}.
+
+  \code{kfamset} does essentially the same but without ensuring that the
+  empty set and \emph{Q} are included.
 }
 \note{
   Note that by default the quotes indicate the fact that the items 
@@ -61,6 +66,6 @@ kst <- set(set("a"), set("a","b"), set("a","c"), set("d","e"), set("a","b","d","
 kstructure(kst)
 # Turning off the quotes for displaying purposes
 sets_options("quote",FALSE)
-kstructure(kst)
+kfamset(kst)
 }
 \keyword{math}

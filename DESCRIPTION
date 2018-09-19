@@ -1,10 +1,12 @@
 Package: kst
-Version: 0.4-0
-Date: 2018-04-13
+Version: 0.5-0
+Date: 2018-09-19
 Title: Knowledge Space Theory
 Authors@R: c(person(given = "Christina", family = "Stahl", role = c("aut")),
              person(given = "David", family = "Meyer", role = c("aut")),
-	     person(given = "Cord", family = "Hockemeyer", role = c("aut", "cre"),
+	     person(given = "Cord", 
+                    family = "Hockemeyer", 
+                    role = c("aut", "cre"),
 	            email = "cord.hockemeyer@uni-graz.at"))
 Description: Knowledge space theory by Doignon and Falmagne (1999) 
    <doi:10.1007/978-3-642-58625-5> is a set- and order-theoretical
@@ -13,14 +15,15 @@ Description: Knowledge space theory by Doignon and Falmagne (1999)
    basic functionalities to generate, handle, and manipulate knowledge 
    structures and knowledge spaces.
 License: GPL (>= 2)
-Depends: R (>= 3.3.0), proxy, relations (>= 0.6-7), sets (>= 1.0-17)
+Depends: R (>= 3.5.0), proxy, relations (>= 0.6-7), sets (>= 1.0-17)
 Suggests: Rgraphviz
 Author: Christina Stahl [aut],
   David Meyer [aut],
   Cord Hockemeyer [aut, cre]
 Maintainer: Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+URL: https://homepage.uni-graz.at/en/cord.hockemeyer/
 NeedsCompilation: no
 Repository: CRAN
 Encoding: UTF-8
-Packaged: 2018-04-13 12:56:42 UTC; cord
-Date/Publication: 2018-04-13 14:30:20 UTC
+Packaged: 2018-09-19 14:35:35 UTC; cord
+Date/Publication: 2018-09-19 15:20:02 UTC

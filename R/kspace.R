@@ -26,7 +26,7 @@ kspace <- function(x) {
    space <- c(x, set(dom), set(set()))
    class(space) <- class(x)
    space <- closure(space, operation="union")
-   class(space) <- c("kspace", "kstructure", "set", "gset", "cset")
+   class(space) <- c("kspace", "kstructure", "kfamset", "set", "gset", "cset")
 
    ### return space
    space
