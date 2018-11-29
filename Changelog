@@ -1,7 +1,12 @@
-2018-09-17: Version 0.4-1, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+2018-11-29: Version 0.5-1, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* as.famset: Using matrix colnames as names for items
+             Correcting letters computation for names
+
+2018-09-17: Version 0.5-0, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 
 * Introducing kfamset class
-* New methods plot.kfamset, closure.kfamset, reduction.kfamset
+* New methods plot.kfamset, closure.kfamset, reduction.kfamset,
   as.relation.kfamset 
 * Updating documentation
 

@@ -20,7 +20,9 @@
   in set i.
 
   If \code{as.letters} is \code{TRUE} the elements of the sets are letters,
-  otherwise numbers.
+  otherwise numbers. However, if the matrix has colnames, these are taken
+  as names for the elements of the sets taking precedence over the
+  \code{as.letters} parameter.
 
   If the matrix contains the same row multiple times it is contained only
   once in the resulting family of sets.
