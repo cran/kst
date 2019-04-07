@@ -1,3 +1,8 @@
+2019-04-08: Version 0.5-2, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* Optimizing as.relation functions using lapply instead of for-loops
+* Correcting bug in kdomain w.r.t. kfamset class
+
 2018-11-29: Version 0.5-1, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 
 * as.famset: Using matrix colnames as names for items

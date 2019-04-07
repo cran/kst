@@ -17,10 +17,10 @@
   \item{\dots}{Currently not used.}
 }
 \details{
-  \code{as.relation} takes an arbitrary knowledge structure and computes its
-  underlying surmise \code{\link[relations]{relation}}, i.e., the set of
-  item paris corresponding to the knowledge dependencies. Antisymmetric and
-  transitive surmise relations may then be plotted as a Hasse diagram.
+  \code{as.relation} takes an arbitrary knowledge structure and computes the
+  surmise \code{\link[relations]{relation}} of the corresponding 
+  quasi-ordinal knowledge space. Antisymmetric (and
+  transitive) surmise relations may then be plotted as a Hasse diagram.
 }
 \value{
   An \R object of class \code{\link[relations]{relation}}.

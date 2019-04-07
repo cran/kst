@@ -7,6 +7,8 @@
 ### dependencies: library(relations), library(sets)
 ###
 ### 2017-12-13: created
+### 2018-04-13: completely rewritten
+### 2019-04-07: Replacing nested for-loops with lapply commands
 ###
 
 as.relation.kbase <- function(x,...) {
@@ -22,13 +24,14 @@ as.relation.kbase <- function(x,...) {
    colnames(relmat) <- dom
    rownames(relmat) <- dom
    strmat <- as.binaryMatrix(x)
-   for (i in 1:dim(strmat)[2]) {
-     for (j in 1:dim(strmat)[2]) {
+   lapply(as.list(1:dim(strmat)[2]), function(i) {
+     lapply(as.list(1:dim(strmat)[2]), function(j) {
        if (all(strmat[,i] <= strmat[,j])) {
-         relmat[j,i] <- 1
+         relmat[j,i] <<- 1
        }
-     }
-   }
+     })
+   })
+   storage.mode(relmat) <- "integer"
    rel <- as.relation(relmat)
    rel
 }
