@@ -1,6 +1,6 @@
 Package: kst
-Version: 0.5-2
-Date: 2019-04-07
+Version: 0.5-3
+Date: 2022-07-13
 Title: Knowledge Space Theory
 Authors@R: c(person(given = "Christina", family = "Stahl", role = c("aut")),
              person(given = "David", family = "Meyer", role = c("aut")),
@@ -25,5 +25,5 @@ URL: https://homepage.uni-graz.at/en/cord.hockemeyer/
 NeedsCompilation: no
 Repository: CRAN
 Encoding: UTF-8
-Packaged: 2019-04-07 12:41:07 UTC; cord
-Date/Publication: 2019-04-07 13:00:02 UTC
+Packaged: 2022-07-13 13:16:36 UTC; cord
+Date/Publication: 2022-07-13 13:40:02 UTC

@@ -1,3 +1,7 @@
+2019-07-13: Version 0.5-3, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+
+* Methods as.relation(), reduction(), and plot() for class kspace
+
 2019-04-08: Version 0.5-2, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 
 * Optimizing as.relation functions using lapply instead of for-loops

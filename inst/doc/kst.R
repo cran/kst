@@ -1,5 +1,4 @@
 ### R code from vignette source 'kst.Rnw'
-### Encoding: UTF-8
 
 ###################################################
 ### code chunk number 1: kst.Rnw:59-61

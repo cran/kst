@@ -24,14 +24,17 @@ export("as.binaryMatrix",
        "lpath_is_gradation"
        )
 
+S3method("as.relation", "kspace")
 S3method("as.relation", "kstructure")
 S3method("as.relation", "kbase")
 S3method("as.relation", "kfamset")
 S3method("closure", "kstructure")
 S3method("closure", "kbase")
 S3method("closure", "kfamset")
+S3method("plot", "kspace")
 S3method("plot", "kstructure")
 S3method("plot", "kbase")
 S3method("plot", "kfamset")
+S3method("reduction", "kspace")
 S3method("reduction", "kstructure")
 S3method("reduction", "kfamset")
