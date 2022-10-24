@@ -167,9 +167,10 @@ structure to the specified item(s):
 ktrace(kst, items=set("c","d","e"))
 @
 
-Fifthly, the \codefunind{kneighbourhood} function computers the neighbourhood of a
-knowledge state. 
+Fifthly, the \codefunind{knneighbourhood} and \codefunind{kneighbourhood}
+functions compute the n-neighbourhood and neighbourhood of a knowledge state. 
 <<kneighbourhood>>=
+knneighbourhood(kst, state=set("a", "b"), distance=2)
 kneighbourhood(kst, state=set("a", "b"))
 @
 

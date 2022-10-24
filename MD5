@@ -1,6 +1,6 @@
-10000aff9e8b901b6d71bc72a6d69072 *Changelog
-8d526748ec6ae4d9e20b4c5177ce003c *DESCRIPTION
-15c301c049cf41d68d0d14eae04c67b6 *NAMESPACE
+a1d53ca97d6a23b83fe3ec4d318e97d4 *Changelog
+3d131f923861a34e446f82b8ecabc14f *DESCRIPTION
+ed5bed6f09d693443a20266601fb02b3 *NAMESPACE
 ba1e72711aa0d5499499e964cfe575ac *R/as.binaryMatrix.R
 294c93eaaa73baa5ec7b5ebef57817b6 *R/as.famset.R
 147e7637fe6041f0ac78614800479808 *R/as.relation.kbase.R
@@ -19,6 +19,7 @@ a0c52fdd146987f5a224a088e1b79ec9 *R/kfringe.R
 a3855327243726514e9d0ed629fa567d *R/kfringe_inner.R
 d6443e8d627afb428a5c89a0d7aef302 *R/kfringe_outer.R
 1a2894cfce3aabe14b4584c7359bba52 *R/kneighbourhood.R
+6aa8abc0a44a73b0065217fad7fec9e1 *R/knneighbourhood.R
 8a21ca65690571c0b690df70aa8367d8 *R/knotions.R
 57df6ecc7d6e8e3ed3dcd3581f6bcaf4 *R/kspace.R
 2fa565bc9d1f59fd3669dde586a64ede *R/kstructure.R
@@ -38,9 +39,9 @@ b84200f86ecb3b3b6f97ae8509348436 *R/plot.kfamset.R
 6e37999d083a62ca013dea612e36538f *build/vignette.rds
 b3136412ea69763c8ad8c8089b5611ea *demo/00Index
 8399c94d16a3764bacd393149925ec74 *demo/kst.R
-b2411c2914b3f9502c20dd9e4fb3b241 *inst/doc/kst.R
-f45028682f4fbfa1892ef5bdeae09ed5 *inst/doc/kst.Rnw
-3dd8184aae0dd89f85016157c0bf8747 *inst/doc/kst.pdf
+098ea0341bc4c468386416908d8a2439 *inst/doc/kst.R
+6400a8f3c8e1f2b97e0d66779f0ae59a *inst/doc/kst.Rnw
+c1c2b9d9748bf03092e98146a9a2e836 *inst/doc/kst.pdf
 60a62afe095a4334b1d5e2211f4d4cc9 *man/as.binaryMatrix.Rd
 3b9c6eed5f31a702586174317563b5cd *man/as.famset.Rd
 cd1e64e138500bc4ef656d8c4241de55 *man/as.relation.Rd
@@ -51,6 +52,7 @@ c648ff8d811378a666e5749c30a2dc96 *man/kbase.Rd
 8540d89cb56022c88c46de26440d8f9e *man/kdomain.Rd
 ed80f0dd582d562b0027f7fb2692d722 *man/kfringe.Rd
 d0fc2b5c4b40680c52a3ad00a24bd7bc *man/kneighbourhood.Rd
+8c6c7dff27b7ff786be447dc9eddbb3f *man/knneighbourhood.Rd
 37a1794f4db688fb314462607758139e *man/knotions.Rd
 595d0d966eca260b734311c6f3acdbb5 *man/kstructure.Rd
 d65d425fa63af445a22010f76df779dc *man/kstructure_is_wellgraded.Rd
@@ -64,5 +66,5 @@ c9c2c7b47f1f3f41d12cabf43c81ff75 *man/reduction.Rd
 717cb53b4323c7ff0cf7f675b11dfe05 *vignettes/a4wide.sty
 8aae94c2b57a5b40cec020ee70aeaea3 *vignettes/abbrvnat.bst
 e1f8a5b568d573b4fde3bcddb7cfff02 *vignettes/kst-classes.png
-f45028682f4fbfa1892ef5bdeae09ed5 *vignettes/kst.Rnw
+6400a8f3c8e1f2b97e0d66779f0ae59a *vignettes/kst.Rnw
 9e84637024c2527b0b9965aea592887b *vignettes/kst.bib

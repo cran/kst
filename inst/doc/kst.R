@@ -54,6 +54,7 @@ ktrace(kst, items=set("c","d","e"))
 ###################################################
 ### code chunk number 8: kneighbourhood
 ###################################################
+knneighbourhood(kst, state=set("a", "b"), distance=2)
 kneighbourhood(kst, state=set("a", "b"))
 
 
@@ -76,7 +77,7 @@ if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
 
 ###################################################
-### code chunk number 12: kst.Rnw:200-201
+### code chunk number 12: kst.Rnw:201-202
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
@@ -133,7 +134,7 @@ if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
 
 
 ###################################################
-### code chunk number 20: kst.Rnw:335-336
+### code chunk number 20: kst.Rnw:336-337
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
 

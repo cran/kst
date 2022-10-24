@@ -1,3 +1,6 @@
+2022-10-24: Version 0.5-4, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+* New function knneighbourhood computing the n-neighbourhood of a state
+
 2019-07-13: Version 0.5-3, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 
 * Methods as.relation(), reduction(), and plot() for class kspace
