@@ -1,7 +1,7 @@
 ### R code from vignette source 'kst.Rnw'
 
 ###################################################
-### code chunk number 1: kst.Rnw:59-61
+### code chunk number 1: kst.Rnw:60-62
 ###################################################
 options(width = 80)
 library("kst")
@@ -77,7 +77,7 @@ if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
 
 ###################################################
-### code chunk number 12: kst.Rnw:201-202
+### code chunk number 12: kst.Rnw:202-203
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
 
@@ -134,7 +134,7 @@ if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
 
 
 ###################################################
-### code chunk number 20: kst.Rnw:336-337
+### code chunk number 20: kst.Rnw:337-338
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
 

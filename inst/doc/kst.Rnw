@@ -45,6 +45,7 @@
 \sloppy{}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 \maketitle
 
 \begin{abstract}
@@ -87,7 +88,7 @@ The \pkg{kst} package makes heavily usage of \R{} classes. Figure~\ref{fig:class
 gives an overview of these classes and the relationships between them.
 \begin{figure}[htbp]
     \begin{center}
-	\includegraphics{kst-classes.png}
+	\includegraphics{kst-classes.jpg}
 	\caption{\R{} classes in the \pkg{kst} package}\label{fig:classes}
     \end{center}
 \end{figure}

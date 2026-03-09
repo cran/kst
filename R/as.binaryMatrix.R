@@ -23,5 +23,6 @@ as.binaryMatrix <- function(x) {
               dimnames=list(NULL, items))
   for (i in seq_len(nrow(R))) R[i, states[[i]]] <- 1
   storage.mode(R) <- "integer"
+  class(R) <- unique(c("kmfamset", class(R)))
   R
 }

@@ -16,7 +16,7 @@
   representation and computes its matrix form.
 }
 \value{
-  An \R object of class \code{matrix}.
+  An \R object of class \code{kmfamset}.
 }
 \seealso{
   \code{\link{as.famset}}, \code{\link{kspace}}, \code{\link{kstructure}}

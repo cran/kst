@@ -22,7 +22,7 @@
   \code{kstructure_is_kspace} takes an arbitrary knowledge structure and
    tests for its space property.
 
-  \code{kspace} takes an arbitrary knowledge structure, base, or family
+  \code{kspace} takes an arbitrary family
   of sets and returns the corresponding knowledge space, i.e. its closure
   under union.
 }

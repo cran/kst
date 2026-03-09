@@ -1,6 +1,6 @@
 Package: kst
-Version: 0.5-4
-Date: 2022-10-24
+Version: 0.5-5
+Date: 2026-03-08
 Title: Knowledge Space Theory
 Authors@R: c(person(given = "Christina", family = "Stahl", role = c("aut")),
              person(given = "David", family = "Meyer", role = c("aut")),
@@ -25,5 +25,5 @@ URL: https://homepage.uni-graz.at/en/cord.hockemeyer/
 NeedsCompilation: no
 Repository: CRAN
 Encoding: UTF-8
-Packaged: 2022-10-24 12:55:44 UTC; cord
-Date/Publication: 2022-10-24 13:52:37 UTC
+Packaged: 2026-03-09 08:12:37 UTC; hockemey
+Date/Publication: 2026-03-09 09:20:02 UTC
