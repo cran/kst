@@ -23,8 +23,10 @@ kst
 ###################################################
 ### code chunk number 3: set_options
 ###################################################
+old_quote_option <- sets_options("quote")
 sets_options("quote",FALSE)
 kst
+sets_options("quote", old_quote_option)
 
 
 ###################################################
@@ -71,25 +73,7 @@ kstructure_is_wellgraded(kst)
 
 
 ###################################################
-### code chunk number 11: plot
-###################################################
-if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
-
-
-###################################################
-### code chunk number 12: kst.Rnw:202-203
-###################################################
-if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
-
-
-###################################################
-### code chunk number 13: as.relation
-###################################################
-as.relation(kst)
-
-
-###################################################
-### code chunk number 14: kassess
+### code chunk number 11: kassess
 ###################################################
 rp <- data.frame(a=c(1,1,0,1,1,1,1,0,0,0),b=c(0,1,0,1,0,1,0,1,0,0),
    c=c(0,0,0,0,1,1,1,0,1,0),d=c(0,0,1,1,1,1,0,0,0,1), e=c(0,0,1,1,1,1,0,0,0,0))
@@ -97,7 +81,7 @@ kassess(kst, rpatterns=rp)
 
 
 ###################################################
-### code chunk number 15: kvalidate
+### code chunk number 12: kvalidate
 ###################################################
 kvalidate(kst, rpatterns=rp, method="gamma")
 kvalidate(kst, rpatterns=rp, method="percent")
@@ -106,19 +90,19 @@ kvalidate(kst, rpatterns=rp, method="DA")
 
 
 ###################################################
-### code chunk number 16: closure
+### code chunk number 13: closure
 ###################################################
 closure(kst, operation="union")
 
 
 ###################################################
-### code chunk number 17: reduction
+### code chunk number 14: reduction
 ###################################################
 reduction(kst, operation="discrimination")
 
 
 ###################################################
-### code chunk number 18: kfamset
+### code chunk number 15: kfamset
 ###################################################
 # An endorelation representing a surmise relation
 # A set of sets representing knowledge states (e.g., clauses of a surmise system)
@@ -128,61 +112,96 @@ kfs
 
 
 ###################################################
-### code chunk number 19: plotfamset
+### code chunk number 16: plotfamset
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
 
 
 ###################################################
-### code chunk number 20: kst.Rnw:337-338
+### code chunk number 17: kst.Rnw:312-313
 ###################################################
 if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kfs)}
 
 
 ###################################################
-### code chunk number 21: kspace
+### code chunk number 18: kspace
 ###################################################
 ksp <- kspace(kst)
 ksp
 
 
 ###################################################
-### code chunk number 22: kstructure_is_space
+### code chunk number 19: kstructure_is_space
 ###################################################
 kstructure_is_kspace(ksp)
 
 
 ###################################################
-### code chunk number 23: kbase
+### code chunk number 20: kbase
 ###################################################
 kbase(ksp)
 
 
 ###################################################
-### code chunk number 24: lpath
+### code chunk number 21: printudgly
+###################################################
+fs <- kfamset(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 
+                  set("a","b","d","e"), set("a","c","d","e"), set("a","b","c","d","e"),
+                  set("a", "b", "c", "d", "e", "f")))
+print(fs)
+
+
+###################################################
+### code chunk number 22: printpretty
+###################################################
+old_quote_option <- sets_options("quote")
+sets_options("quote", FALSE)
+print(fs, limit=7)
+sets_options("quote", old_quote_option)
+
+
+###################################################
+### code chunk number 23: plot
+###################################################
+if(requireNamespace("Rgraphviz")) {plot(kst)}
+
+
+###################################################
+### code chunk number 24: kst.Rnw:393-394
+###################################################
+if(requireNamespace("Rgraphviz")) {plot(kst)}
+
+
+###################################################
+### code chunk number 25: asrelation
+###################################################
+plot(as.relation(kst))
+
+
+###################################################
+### code chunk number 26: lpath
 ###################################################
 lp <- lpath(ksp)
 lp
 
 
 ###################################################
-### code chunk number 25: lpath_is_gradation
+### code chunk number 27: lpath_is_gradation
 ###################################################
 lpath_is_gradation(lp)
 
 
 ###################################################
-### code chunk number 26: as.famset
+### code chunk number 28: as.famset
 ###################################################
 m <- matrix(c(1, 0, 0, 1, 1, 0), nrow = 2, ncol = 3)
+class(m) <- unique(c("kmfamset", class(m)))
 m
 as.famset(m)
 as.famset(m, as.letters = FALSE)
 
 
 ###################################################
-### code chunk number 27: as.matrix
+### code chunk number 29: as.matrix
 ###################################################
 as.binaryMatrix(ksp)
-
-

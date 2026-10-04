@@ -1,3 +1,7 @@
+2026-03-09: Version 0.5-6, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
+* Refining class handling of as.famset() and as.binaryMatrix()
+* Updating vignette
+
 2026-03-08: Version 0.5-5, Cord Hockemeyer <cord.hockemeyer@uni-graz.at>
 * Allowing generally kfamset parameter to kspace()
 * Extending class of as.binaryMatrix result by kmfamset

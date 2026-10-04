@@ -9,9 +9,9 @@
   as.famset(m, as.letters = TRUE)
 }
 \arguments{
-  \item{m}{A binary matrix.}
+  \item{m}{A binary matrix mof class \code{kmfamset}.}
   \item{as.letters}{logical, should the elements of the sets be letters
-                    or numbers?}
+                    or numbers? Only used if colnames(m) is NULL.}
 }
 \details{
   \code{as.famset} takes a binary matrix and converts it to a family (i.e.
@@ -28,13 +28,16 @@
   once in the resulting family of sets.
 }
 \value{
-  An \R object of class \code{\link[sets]{set}} containing \code{sets}..
+  An \R object of class \code{\link[sets]{set}} containing \code{sets}. 
+  Further class attributes arer set according to the class attributes of 
+  \code{m}.
 }
 \seealso{
   \code{\link{as.binaryMatrix}}, \code{\link[sets]{set}}
 }
 \examples{
 m <- matrix(c(1, 0, 0, 1, 1, 0), nrow = 2, ncol = 3)
+class(m) <- unique(c("kmfamset", class(m)))
 m
 as.famset(m)
 as.famset(m, as.letters = FALSE)

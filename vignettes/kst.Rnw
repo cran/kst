@@ -131,8 +131,10 @@ Note that by default the quotes indicate the fact that the items are
 represented by characters. For displaying purposes, these quotes may be
 turned off:
 <<set_options>>=
+old_quote_option <- sets_options("quote")
 sets_options("quote",FALSE)
 kst
+sets_options("quote", old_quote_option)
 @
 
 On the resulting knowledge structure several operations can be performed. 
@@ -189,37 +191,10 @@ A knowledge structure is considered \emph{well-graded} if any two of its states 
 kstructure_is_wellgraded(kst)
 @
 
-Apart from these basic operations, the \pkg{kst} package also provides 
-plotting functionalities for knowledge structures (see README for details). The \codefunind{plot} 
-method takes an arbitrary knowledge structure and plots a Hasse Diagram of 
-the respective knowledge structure (see Figure~\ref{fig:hasse-kst}):
-<<plot,fig=FALSE>>=
-if(requireNamespace("Rgraphviz")) {Rgraphviz::plot(kst)}
-@
-
-\begin{figure}[h]
-\begin{center}
-<<fig=TRUE,echo=FALSE>>=
-<<plot>>
-@
-\caption{Knowledge Structure}
-\label{fig:hasse-kst}
-\end{center}
-\end{figure}
-
-In order to allow for plotting the surmise relation underlying a knowledge 
-structure, the \pkg{kst} package provides the \codefunind{as.relation} 
-method, which computes its underlying surmise relation, i.e., the set of
-item pairs corresponding to the knowledge dependencies. Antisymmetric and 
-transitive surmise relations may then be plotted as a Hasse diagram:
-<<as.relation>>=
-as.relation(kst)
-@
-
+\subsection{Assessment and Validation}
 In those cases where individuals' response patterns are available, they may 
 be used to assess individuals or validate a knowledge structure.
 
-\subsection{Assessment and Validation}
 The \codefunind{kassess} function assigns individuals to their corresponding 
 knowledge state in a knowledge structure. Currently only 
 \dQuote{deterministic} assessment is implemented. Assessing individuals based 
@@ -375,6 +350,65 @@ A knowledge structure has a base only if it is a knowledge space.
 kbase(ksp)
 @
 
+
+\section{Printing and plotting \pkg{kst} objects}
+\label{sec:print}
+Apart from the basic operations described above, the \pkg{kst} package also 
+provides printing and plotting functionalities for knowledge structures
+through the respective S3 methods. 
+
+\subsection{Printing}
+By default, the \codefunind{print} method looks less nice.
+<<printudgly>>=
+fs <- kfamset(set(set("a"), set("a","b"), set("a","c"), set("d","e"), 
+                  set("a","b","d","e"), set("a","c","d","e"), set("a","b","c","d","e"),
+                  set("a", "b", "c", "d", "e", "f")))
+print(fs)
+@
+
+The quotes around the single set elements can be switched off with a global
+option of the \pkg{sets} package. The full item set can be printed with an 
+additional option to the \codefunind{print} function
+<<printpretty>>=
+old_quote_option <- sets_options("quote")
+sets_options("quote", FALSE)
+print(fs, limit=7)
+sets_options("quote", old_quote_option)
+@
+
+Please note that the \code{limit} parameter mus be (at least) one higher than 
+the cardinality of the largest set to be printed.
+
+\subsection{Plotting}
+The \codefunind{plot} method takes an arbitrary family of sets or surmise 
+relation and plots a repsective Hasse Diagram (see Figure~\ref{fig:hasse-kst}).
+It requires Bioconductor's \pkg{Rgraphviz} package.
+
+<<plot,fig=FALSE>>=
+if(requireNamespace("Rgraphviz")) {plot(kst)}
+@
+
+\begin{figure}[h]
+\begin{center}
+<<fig=TRUE,echo=FALSE>>=
+<<plot>>
+@
+\caption{Knowledge Structure}
+\label{fig:hasse-kst}
+\end{center}
+\end{figure}
+
+In order to allow for plotting the surmise relation underlying a knowledge 
+structure, the \pkg{kst} package provides the \codefunind{as.relation} 
+method, which computes its underlying surmise relation, i.e., the set of
+item pairs corresponding to the knowledge dependencies. Antisymmetric and 
+transitive surmise relations may then be plotted as a Hasse diagram using 
+the S3 \codefunind{plot} method of the \pkg{relations} package:
+<<asrelation, fig=TRUE>>=
+plot(as.relation(kst))
+@
+
+
 \section{Learning Paths}
 \label{sec:lpath}
 
@@ -396,6 +430,7 @@ as representation for knowledge structures and data sets. The
 (i.e. \code{sets}) of \code{sets}.  
 <<as.famset>>=
 m <- matrix(c(1, 0, 0, 1, 1, 0), nrow = 2, ncol = 3)
+class(m) <- unique(c("kmfamset", class(m)))
 m
 as.famset(m)
 as.famset(m, as.letters = FALSE)
